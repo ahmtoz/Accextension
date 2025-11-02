@@ -1,1 +1,168 @@
 # AccEase
+
+Harika 👍
+Aşağıda, senin paylaştığın **6 aşamalı proje planına** ve geliştirme sürecine tamamen uygun, **GitHub uyumlu profesyonel bir README.md** dosyası hazırladım.
+Bu README; proje açıklaması, özellikler, teknoloji yığını, kurulum adımları, proje planı (milestones özeti) ve ekip bilgilerini içeriyor.
+İstersen bunu doğrudan GitHub’a yapıştırabilirsin.
+
+---
+
+```markdown
+# 🌐 Project Name: [Your Project Title Here]
+
+## 📖 Overview
+This project aims to design and develop an interactive **website** along with a **browser extension** that enhances user engagement and accessibility.  
+Throughout the process, we focused on research-based design decisions, clean UI/UX principles, responsive layouts, and practical integration between web and extension components.  
+The project also includes a **promotional video** to communicate the final product and its goals effectively.
+
+---
+
+## 🎯 Project Objectives
+- Conduct research to identify design and usability trends.
+- Design and prototype the main website and first extension.
+- Develop both frontend and backend components.
+- Test usability and collect real user feedback.
+- Create a promotional video summarizing the project outcome.
+
+---
+
+## ⚙️ Tech Stack
+- **Frontend:** React, TailwindCSS  
+- **Backend:** Node.js (Express)  
+- **Database:** Firebase / JSON Server (depending on implementation)  
+- **Extension:** Chrome Manifest v3  
+- **Version Control:** Git + GitHub  
+- **Design Tools:** Figma, Canva  
+- **Video Editing:** CapCut / Adobe Premiere Pro  
+
+---
+
+## 📅 Project Milestones
+
+| Milestone | Objective | Expected Completion |
+|------------|------------|---------------------|
+| **1. Research & Design Search** | Analyze similar projects and define core design goals | 3 Nov |
+| **2. Main Website Prototyping** | Create structure, wireframes, and visual prototype | 10 Nov |
+| **3. Main Website Development & First Extension Prototyping** | Implement website and design first browser extension | 20 Nov |
+| **4. First Extension Development & Other Extension Prototyping** | Develop the first extension and prototype additional ones | 30 Nov |
+| **5. User Testing & Evaluation** | Gather and analyze user feedback | 7 Dec |
+| **6. Promotional Project Video** | Produce final promotional video | 14 Dec |
+
+---
+
+## 🧱 Project Structure
+```
+
+project-root/
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── extensions/
+│   ├── assets/
+│   └── utils/
+│
+├── public/
+│   └── index.html
+│
+├── extension/
+│   ├── manifest.json
+│   └── background.js
+│
+├── README.md
+├── package.json
+└── .gitignore
+
+````
+
+---
+
+## 🚀 Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/yourprojectname.git
+````
+
+2. **Navigate to the project directory**
+
+   ```bash
+   cd yourprojectname
+   ```
+
+3. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+4. **Start the development server**
+
+   ```bash
+   npm start
+   ```
+
+5. **Build for production**
+
+   ```bash
+   npm run build
+   ```
+
+6. *(Optional)* To test the browser extension:
+
+   * Go to `chrome://extensions`
+   * Enable **Developer Mode**
+   * Click **Load unpacked**
+   * Select the `/extension` folder inside the project directory.
+
+---
+
+## 🧩 Key Features
+
+* 📱 **Responsive Design:** Fully optimized for desktop and mobile screens.
+* 🧠 **User-Centered Design:** Based on research and usability testing.
+* ⚡ **Fast and Lightweight:** Built with modern web technologies.
+* 🔗 **Web–Extension Integration:** Seamless communication between web interface and extension.
+* 🎥 **Promotional Video:** Summarizes project vision and development process.
+
+---
+
+## 👥 Team Members
+
+| Member       | Role / Main Responsibility                           |
+| ------------ | ---------------------------------------------------- |
+| **Person 1** | UI/UX Design, Frontend Development, Video Production |
+| **Person 2** | Backend & Extension Development                      |
+| **Person 3** | Research, Documentation, Testing & Feedback Analysis |
+
+---
+
+## 🧭 Future Improvements
+
+* Add multilingual support.
+* Develop additional extensions for different use cases.
+* Implement a user login system with personalized data.
+* Enhance accessibility compliance (WCAG 2.1).
+
+---
+
+## 📹 Promotional Video
+
+*(Link will be added after final production)*
+🎬 *Coming soon!*
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 💬 Contact
+
+For questions, suggestions, or collaborations:
+📧 **[your.email@example.com](mailto:your.email@example.com)**
+🌍 **GitHub:** [github.com/yourusername](https://github.com/yourusername)
+
+---
