@@ -1,13 +1,5 @@
 # AccEase
 
-Harika 👍
-Aşağıda, senin paylaştığın **6 aşamalı proje planına** ve geliştirme sürecine tamamen uygun, **GitHub uyumlu profesyonel bir README.md** dosyası hazırladım.
-Bu README; proje açıklaması, özellikler, teknoloji yığını, kurulum adımları, proje planı (milestones özeti) ve ekip bilgilerini içeriyor.
-İstersen bunu doğrudan GitHub’a yapıştırabilirsin.
-
----
-
-```markdown
 # 🌐 Project Name: [Your Project Title Here]
 
 ## 📖 Overview
@@ -108,13 +100,6 @@ project-root/
    npm run build
    ```
 
-6. *(Optional)* To test the browser extension:
-
-   * Go to `chrome://extensions`
-   * Enable **Developer Mode**
-   * Click **Load unpacked**
-   * Select the `/extension` folder inside the project directory.
-
 ---
 
 ## 🧩 Key Features
@@ -131,18 +116,10 @@ project-root/
 
 | Member       | Role / Main Responsibility                           |
 | ------------ | ---------------------------------------------------- |
-| **Person 1** | UI/UX Design, Frontend Development, Video Production |
-| **Person 2** | Backend & Extension Development                      |
-| **Person 3** | Research, Documentation, Testing & Feedback Analysis |
-
----
-
-## 🧭 Future Improvements
-
-* Add multilingual support.
-* Develop additional extensions for different use cases.
-* Implement a user login system with personalized data.
-* Enhance accessibility compliance (WCAG 2.1).
+| **Nida Melis İŞLEYEN** | Business Analyst |
+| **Ahmet Faruk ÖZ** | Frontend Developer |
+| **Bilge UZUN** | UX/UI Designer |
+| **Doğan TOSUN** | Backend Developer |
 
 ---
 
@@ -150,19 +127,5 @@ project-root/
 
 *(Link will be added after final production)*
 🎬 *Coming soon!*
-
----
-
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 💬 Contact
-
-For questions, suggestions, or collaborations:
-📧 **[your.email@example.com](mailto:your.email@example.com)**
-🌍 **GitHub:** [github.com/yourusername](https://github.com/yourusername)
 
 ---
