@@ -74,13 +74,13 @@ project-root/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/yourprojectname.git
+   git clone https://github.com/yourusername/AccEase.git
 ``
 
 2. **Navigate to the project directory**
 
    ```bash
-   cd yourprojectname
+   cd AccEase
    ```
 
 3. **Install dependencies**
