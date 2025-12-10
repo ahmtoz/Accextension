@@ -1,0 +1,23 @@
+footer {
+    background-color: #ffdd50;
+    color: #000;
+    padding: 3rem 6rem 1rem 6rem;
+}
+
+.footer-container {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+ul li {
+    list-style-type: circle;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: #000;
+}
