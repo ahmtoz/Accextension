@@ -4,9 +4,9 @@ section {
 
 .container {
     display: flex;
-    justify-content: space-between;
-    margin-inline: 4rem;
-    margin-block: 2rem;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
     gap: 2rem;
 }
 
@@ -17,29 +17,31 @@ section {
 }
 
 .hero-information h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     color: #333;
 }
 
 .hero-information h4 {
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: #7c3aed;
 }
 
 .hero-information p {
-    font-size: .875rem;
+    font-size: 0.75rem;
     color: #333;
 }
 
 .cta-buttons {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
 
 .get-started, .video {
-    padding: 1rem;
-    border-radius: .5rem;
-    border: none;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
 }
 
 .get-started {
@@ -47,7 +49,57 @@ section {
     color: #fff;
 }
 
+.video {
+    border: 1px solid #333;
+}
+
 .hero-image {
-    width: 60%;
-    height: auto    ;
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 768px) {
+   .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-inline: 4rem;
+        margin-block: 2rem;
+        gap: 2rem;
+    }
+
+    .hero-information h1 {
+        font-size: 3.5rem;
+        color: #333;
+    }
+
+    .hero-information h4 {
+        font-size: 1rem;
+        color: #7c3aed;
+    }
+
+    .hero-information p {
+        font-size: .875rem;
+        color: #333;
+    }
+
+    .cta-buttons {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .get-started, .video {
+        padding: 1rem;
+        border-radius: .5rem;
+    }
+
+    .get-started {
+        background-color: #7c3aed;
+        color: #fff;
+    }
+
+    .hero-image {
+        width: 60%;
+        height: auto    ;
+    } 
 }

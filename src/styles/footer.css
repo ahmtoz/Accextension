@@ -11,7 +11,7 @@ footer {
     align-items: flex-start;
 }
 
-ul li {
+.footer-container ul li {
     list-style-type: circle;
 }
 
