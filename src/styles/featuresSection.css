@@ -56,3 +56,14 @@ section {
     color: #fff;
     align-self: flex-end;
 }
+
+@media screen and (max-width: 768px){
+    .features-container {
+        margin-inline: 2rem; 
+        gap: 3rem;
+    }
+    .features-items-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
