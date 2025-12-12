@@ -71,6 +71,7 @@ section {
     .hero-information h1 {
         font-size: 4.25rem;
         line-height: 96px;
+        letter-spacing: 2.64%;
         font-weight: 800;
         padding-bottom: 12px;
         color: #333;
@@ -79,6 +80,7 @@ section {
     .hero-information h4 {
         font-size: 2.25rem;
         line-height: 42px;
+        letter-spacing: 6.86%;
         font-weight: 800;
         color: #333;
     }
@@ -86,6 +88,7 @@ section {
     .hero-information p {
         font-size: 1.25rem;
         line-height: 30px;
+        letter-spacing: 9.6%;
         font-weight: 800;
         color: #333;
     }
@@ -98,6 +101,7 @@ section {
     .get-started, .video {
         font-size: 1.25rem;
         line-height: 30px;
+        letter-spacing: 9.6%;
         font-weight: 600;
         padding: 1.25rem;
         border-radius: .5rem;

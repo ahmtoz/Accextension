@@ -2,24 +2,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
     padding: 2rem;
 }
 
 .info-header {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
     text-align: center;
 }
 
 .info-header h2 {
-    font-size: 2.25rem;
+    font-size: 3.75rem;
+    font-weight: 700;
     color: #333;
 }
 
 .info-header p {
-    font-size: 1rem;
+    font-size: 1.25rem;
+    line-height: 30px;
+    font-weight: 500;
     color: #333;
 }
 
@@ -42,7 +45,10 @@
 }
 
 .info-item p {
-    font-size: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 30px;
+    font-weight: 500;
+    text-align: center;
     color: #333;
 }
 

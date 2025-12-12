@@ -13,17 +13,20 @@ function InfoSection() {
                     <InfoElement 
                         img=""
                         altText="resim1"
-                        text="denemee deneme deneme"
+                        text="AccesEase is an essential browser add-on dedicated to creating a truly inclusive internet experience
+ for everyone."
                     />
                     <InfoElement 
                         img=""
                         altText="resim1"
-                        text="denemee deneme deneme"
+                        text="AccesEase is an essential browser add-on dedicated to creating a truly inclusive internet experience
+ for everyone."
                     />
                     <InfoElement 
                         img=""
                         altText="resim1"
-                        text="denemee deneme deneme"
+                        text="AccesEase is an essential browser add-on dedicated to creating a truly inclusive internet experience
+ for everyone."
                     />
                 </div>
             </div>
