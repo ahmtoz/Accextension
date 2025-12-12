@@ -1,8 +1,15 @@
 /* ---------------------------------------------------------
+   FONT IMPORTS
+   --------------------------------------------------------- */
+
+@import '@fontsource/inter';
+
+/* ---------------------------------------------------------
    MODERN CSS RESET + NORMALIZE
    --------------------------------------------------------- */
 
 /* 1. Tüm elementlerde box-sizing ve sıfırlama */
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -19,7 +26,7 @@ html {
 /* 3. Body sıfırlama */
 body {
   min-height: 100vh;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }

@@ -5,15 +5,13 @@ section {
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 1rem;
-    gap: 2rem;
+    align-items: space-between;
 }
 
 .hero-information {
     display: flex;
     flex-direction: column;
-    gap: 2rem;   
+    gap: 1rem;   
 }
 
 .hero-information h1 {
@@ -63,43 +61,55 @@ section {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-inline: 4rem;
-        margin-block: 2rem;
-        gap: 2rem;
+        gap: 6rem;
+    }
+
+    .hero-information {
+        padding-top: 38px;
     }
 
     .hero-information h1 {
-        font-size: 3.5rem;
+        font-size: 4.25rem;
+        line-height: 96px;
+        font-weight: 800;
+        padding-bottom: 12px;
         color: #333;
     }
 
     .hero-information h4 {
-        font-size: 1rem;
-        color: #7c3aed;
+        font-size: 2.25rem;
+        line-height: 42px;
+        font-weight: 800;
+        color: #333;
     }
 
     .hero-information p {
-        font-size: .875rem;
+        font-size: 1.25rem;
+        line-height: 30px;
+        font-weight: 800;
         color: #333;
     }
 
     .cta-buttons {
         flex-direction: row;
-        gap: 1rem;
+        gap: 2.5rem;
     }
 
     .get-started, .video {
-        padding: 1rem;
+        font-size: 1.25rem;
+        line-height: 30px;
+        font-weight: 600;
+        padding: 1.25rem;
         border-radius: .5rem;
+        border: 2px solid #000;
     }
 
     .get-started {
-        background-color: #7c3aed;
-        color: #fff;
+        background-color: #FFDD50;
+        color: #000;
     }
 
     .hero-image {
-        width: 60%;
-        height: auto    ;
+        height: auto;
     } 
 }

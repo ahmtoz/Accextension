@@ -1,3 +1,16 @@
+body {
+    background-color: #fafafa;
+}
+
 main section {
-    padding-bottom: 3rem;
+    padding-inline: 1rem;
+}
+
+
+@media screen and (min-width: 768px) {
+    main section {
+        padding-bottom: 3rem;
+        padding-left: 10rem;
+        padding-right: 4.25rem;
+    }
 }
