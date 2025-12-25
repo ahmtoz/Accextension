@@ -50,6 +50,10 @@ nav ul {
 }
 
 @media (max-width: 768px) {
+
+    nav {
+        padding: 2rem 1.5rem;
+    }
     
     .hamburger {
         display: flex;
