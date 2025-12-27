@@ -15,21 +15,76 @@ function Popup() {
       // Get the active tab
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
       
+      // Check if we can inject scripts on this page
+      const url = tab.url || '';
+      if (url.startsWith('chrome://') || 
+          url.startsWith('chrome-extension://') || 
+          url.startsWith('edge://') ||
+          url.startsWith('about:') ||
+          url.startsWith('moz-extension://')) {
+        alert('This extension cannot work on browser internal pages (chrome://, chrome-extension://, etc.).\n\nPlease open a regular website (like google.com, wikipedia.org) and try again.');
+        return;
+      }
+      
+      // Check if chrome.scripting is available
+      if (!chrome.scripting || !chrome.scripting.executeScript) {
+        alert('Scripting API is not available. Please make sure the extension has the "scripting" permission and reload the extension.');
+        return;
+      }
+      
+      // Check if content script is injected, if not, inject it
+      let scriptInjected = false;
+      try {
+        await new Promise((resolve, reject) => {
+          chrome.tabs.sendMessage(tab.id, { action: 'ping' }, (response) => {
+            if (chrome.runtime.lastError) {
+              reject(chrome.runtime.lastError);
+            } else {
+              resolve(response);
+            }
+          });
+        });
+        scriptInjected = true;
+      } catch {
+        // Content script not loaded, inject it
+        try {
+          await chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            files: ['content.js']
+          });
+          scriptInjected = true;
+          // Wait a bit for script to initialize
+          await new Promise(resolve => setTimeout(resolve, 100));
+        } catch (injectError) {
+          console.error('Failed to inject script:', injectError);
+          alert(`Cannot inject script on this page: ${injectError.message}\n\nThis usually means:\n1. You're on a browser internal page (chrome://)\n2. The page doesn't allow script injection\n\nPlease try on a regular website like google.com`);
+          return;
+        }
+      }
+      
+      if (!scriptInjected) {
+        alert('Content script could not be loaded. Please refresh the page and try again.');
+        return;
+      }
+      
       // Send message to content script
       chrome.tabs.sendMessage(tab.id, {
         action: 'applyColorBlind',
         type: selectedType
-      }, () => {
+      }, (response) => {
         if (chrome.runtime.lastError) {
-          console.error('Error:', chrome.runtime.lastError);
-          alert('Error applying styles. Please refresh the page and try again.');
+          console.error('Error sending message:', chrome.runtime.lastError);
+          alert(`Error: ${chrome.runtime.lastError.message}. Please refresh the page and try again.`);
         } else {
-          console.log('Styles applied successfully');
+          console.log('Styles applied successfully', response);
+          if (response && !response.success) {
+            alert(`Error: ${response.error || 'Unknown error'}`);
+          }
         }
       });
     } catch (error) {
       console.error('Error:', error);
-      alert('Error applying styles. Please refresh the page and try again.');
+      alert(`Error applying styles: ${error.message}. Please refresh the page and try again.`);
     }
   };
 
@@ -80,19 +135,6 @@ function Popup() {
             id="tritanopia"
             checked={selectedType === 'tritanopia'}
             onChange={() => setSelectedType('tritanopia')}
-          />
-        </div>
-        <div className="option">
-          <div className="option-info">
-            <img src="" alt="IMG3" />
-            <span>Deuteranopia</span>
-          </div>
-          <input 
-            type="radio" 
-            name="colorBlindType" 
-            id="deuteranopia"
-            checked={selectedType === 'deuteranopia'}
-            onChange={() => setSelectedType('deuteranopia')}
           />
         </div>
       </div>

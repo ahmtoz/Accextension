@@ -1,7 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { copyFileSync, mkdirSync, existsSync } from 'fs'
-import { join } from 'path'
+import { join, dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [
@@ -30,7 +33,7 @@ export default defineConfig({
           }
           
           // Copy CSS files
-          const cssFiles = ['protanopia.css', 'tritanopia.css', 'deuteranopia.css']
+          const cssFiles = ['protanopia.css', 'tritanopia.css']
           cssFiles.forEach(file => {
             const src = join(cssSrcDir, file)
             const dest = join(cssDestDir, file)

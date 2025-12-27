@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 let styleElement = null;
 
 function injectCSS(colorBlindType) {
@@ -8,8 +9,21 @@ function injectCSS(colorBlindType) {
   styleElement = document.createElement("link");
   styleElement.rel = "stylesheet";
   styleElement.type = "text/css";
-  styleElement.href = chrome.runtime.getURL(`styles/${colorBlindType}.css`);
+  
+  const cssUrl = chrome.runtime.getURL(`styles/${colorBlindType}.css`);
+  console.log('Injecting CSS from:', cssUrl);
+  styleElement.href = cssUrl;
   styleElement.id = "accease-colorblind-css";
+
+  // Add error handler
+  styleElement.onerror = () => {
+    console.error(`Failed to load CSS file: ${cssUrl}`);
+    styleElement = null;
+  };
+
+  styleElement.onload = () => {
+    console.log(`Successfully loaded CSS: ${cssUrl}`);
+  };
 
   document.head.appendChild(styleElement);
 }
@@ -30,7 +44,9 @@ function removeCSS() {
 // Listen for messages from popup
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   try {
-    if (message.action === "applyColorBlind") {
+    if (message.action === "ping") {
+      sendResponse({ success: true });
+    } else if (message.action === "applyColorBlind") {
       if (message.type) {
         injectCSS(message.type);
         sendResponse({ success: true, type: message.type });

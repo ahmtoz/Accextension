@@ -8,7 +8,8 @@
   },
   "permissions": [
     "activeTab",
-    "tabs"
+    "tabs",
+    "scripting"
   ],
   "content_scripts": [
     {
@@ -21,8 +22,7 @@
     {
       "resources": [
         "styles/protanopia.css",
-        "styles/tritanopia.css",
-        "styles/deuteranopia.css"
+        "styles/tritanopia.css"
       ],
       "matches": ["<all_urls>"]
     }
