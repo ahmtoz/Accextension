@@ -137,6 +137,32 @@ function Popup() {
             onChange={() => setSelectedType('tritanopia')}
           />
         </div>
+        <div className="option">
+          <div className="option-info">
+            <img src="" alt="IMG2" />
+            <span>Deuteranopia</span>
+          </div>
+          <input 
+            type="radio" 
+            name="colorBlindType" 
+            id="deuteranopia"
+            checked={selectedType === 'deuteranopia'}
+            onChange={() => setSelectedType('deuteranopia')}
+          />
+        </div>
+        <div className="option">
+          <div className="option-info">
+            <img src="" alt="IMG2" />
+            <span>Achromatopsia</span>
+          </div>
+          <input 
+            type="radio" 
+            name="colorBlindType" 
+            id="achromatopsia"
+            checked={selectedType === 'achromatopsia'}
+            onChange={() => setSelectedType('achromatopsia')}
+          />
+        </div>
       </div>
       <div className="popup-buttons">
         <button type='button' onClick={handleApply}>Apply</button>
