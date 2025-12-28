@@ -3,6 +3,10 @@ body {
   color: #121212 !important;
 }
 
+div {
+  background-color: #ffffff !important;
+}
+
 h1, h2, h3 {
   color: #0B3D91 !important;
 }
@@ -17,6 +21,7 @@ small {
 
 a {
   color: #0072B2 !important;
+  text-decoration: underline !important;
 }
 
 a:hover,
@@ -28,7 +33,7 @@ button,
 .btn,
 input[type="submit"] {
   background-color: #E69F00 !important;
-  color: #000000 !important;
+  color: #fff !important;
   border: none !important;
 }
 

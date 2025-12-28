@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "AccEase",
+  "name": "Easeo",
   "version": "1.0.0",
   "description": "Accessibility extension for color blindness support",
   "action": {
@@ -22,7 +22,9 @@
     {
       "resources": [
         "styles/protanopia.css",
-        "styles/tritanopia.css"
+        "styles/tritanopia.css",
+        "styles/deuteranopia.css",
+        "styles/achromatopsia.css"
       ],
       "matches": ["<all_urls>"]
     }
