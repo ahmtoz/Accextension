@@ -2,7 +2,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6.25rem 10rem 5.5rem 10rem;
+    padding: 6.25rem 10rem 4.75rem 10rem;
 }
 
 nav .nav-logo {
@@ -10,27 +10,27 @@ nav .nav-logo {
     font-weight: bold;
 }
 
-.nav-logo a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
 nav a {
+    padding: 10px;
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 1.25rem;
+    line-height: 30px;
+    letter-spacing: 9.6%;
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    color: #000000;
+    transition: color 0.8s ease;
 }
 
-nav a:hover {
-    color: #007bff; /* Example hover effect */
+nav ul a:hover {
+    background-color: #FFDD50;
+    border-radius: .5rem;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 .hamburger {
