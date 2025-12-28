@@ -4,10 +4,35 @@ body {
 
 main section {
     padding-inline: 1rem;
+    padding-bottom: 4rem;
 }
 
 
 @media screen and (min-width: 768px) {
+    main section {
+        padding-bottom: 8rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    main section {
+        padding-bottom: 8rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    main section {
+        padding-bottom: 8rem;
+        padding-left: 7rem;
+        padding-right: 7rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
     main section {
         padding-bottom: 8rem;
         padding-left: 10rem;
