@@ -1,6 +1,6 @@
-# AccEase
+# Easeo
 
-# 🌐 Project Name: AccEase
+# 🌐 Project Name: Easeo
 
 ## 📖 Overview
 This project aims to design and develop an interactive **website** along with a **browser extension** that enhances user engagement and accessibility.  
@@ -74,13 +74,13 @@ project-root/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/AccEase.git
+   git clone https://github.com/yourusername/Easeo.git
 ``
 
 2. **Navigate to the project directory**
 
    ```bash
-   cd AccEase
+   cd Easeo
    ```
 
 3. **Install dependencies**

@@ -5,7 +5,7 @@ export function Footer() {
     <footer>
         <div className="footer-container">
             <div className="header">
-                <p>AccEase</p>
+                <p>Easeo</p>
             </div>
             <div className="mobile-wrapper">
                 <div className="links">
@@ -22,7 +22,7 @@ export function Footer() {
                     <p>Have questions? Reach out to us.</p>
                     <div>
                         <img src="" alt="" />
-                        <span>access.ease@gmail.com</span>
+                        <span>easeo@gmail.com</span>
                     </div>
                     <div>
                         <img src="" alt="" />
@@ -32,7 +32,7 @@ export function Footer() {
             </div>
         </div>
         <div className="copyright">
-            <p>© 2025 AccessEase - All rights reserved.</p>
+            <p>© 2025 Easeo - All rights reserved.</p>
         </div>
     </footer>
   );

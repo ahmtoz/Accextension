@@ -9,8 +9,8 @@ function InfoSection() {
         <section>
             <div className="info-container">
                 <div className="info-header">
-                    <h2>What is AccEase?</h2>
-                    <p>AccesEase is an essential browser add-on dedicated to creating a truly inclusive internet experience for everyone. </p>
+                    <h2>What is Easeo?</h2>
+                    <p>Easeo is an essential browser add-on dedicated to creating a truly inclusive internet experience for everyone. </p>
                 </div>
                 <div className="info-items-container">
                     <InfoElement 

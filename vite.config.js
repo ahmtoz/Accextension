@@ -48,7 +48,10 @@ export default defineConfig({
       }
     }
   ],
-  base: '/Easeo/',
+  // Change '/Easeo/' to match your GitHub repository name
+  // If your repo is at github.com/username/Easeo, use '/Easeo/'
+  // If it's the main repo (github.com/username/username.github.io), use '/'
+  base: import.meta.env.PROD ? '/Easeo/' : '/',
   build: {
     rollupOptions: {
       input: {
