@@ -13,25 +13,25 @@ function FeaturesSection() {
             </div>
             <div className="features-items-container">
                 <AddOnElement
-                img={Feat1}
-                altText="feature section image 1"
-                heading="Color Blindness"
-                text="Adjust colors for clear distinction of all webpage elements."
+                  img={Feat1}
+                  altText="feature section image 1"
+                  heading="Color Blindness"
+                  text="Adjust colors for clear distinction of all webpage elements."
                 btnText="Get Extension"
                 />
                 <AddOnElement
-                img={Feat2}
-                altText="feature section image 2"
-                heading="Dyslexia"
-                text="Reformats text with specialized fonts and spacing for easy read. "
-                btnText="Coming Soon"
+                  img={Feat2}
+                  altText="feature section image 2"
+                  heading="Dyslexia"
+                  text="Reformats text with specialized fonts and spacing for easy read. "
+                  btnText="Coming Soon"
                 />
                 <AddOnElement
-                img={Feat3}
-                altText="feature section image 3"
-                heading="Keyboard Nav"
-                text="Enable full mouse-free website navigation using only keyboard. "
-                btnText="Coming Soon"
+                  img={Feat3}
+                  altText="feature section image 3"
+                  heading="Keyboard Nav"
+                  text="Enable full mouse-free website navigation using only keyboard. "
+                  btnText="Coming Soon"
                 />
             </div>    
         </div>
