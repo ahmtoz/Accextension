@@ -1,5 +1,5 @@
 import AddOnElement from "../../../components/UI/AddOnElement";
-import './../../../styles/featuresSection.css';
+import '../../../styles/featuresSection.css';
 import Feat1 from '../../../assets/images/feat1.png';
 import Feat2 from '../../../assets/images/feat2.png';
 import Feat3 from '../../../assets/images/feat3.png';
