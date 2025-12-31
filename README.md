@@ -35,9 +35,9 @@ The project also includes a **promotional video** to communicate the final produ
 |-----------|-----------|---------------------|-----------|
 | 1. Research & Design Search | Analyze similar projects and define core design goals | Nov 9 | Completed on Nov 9 |
 | 2. Main Website Prototyping | Create structure, wireframes, and visual prototype | Nov 23 | Completed on Nov 23 |
-| 3. Main Website Development & First Extension Prototyping | Implement website and design first browser extension | Dec 7 | Working |
-| 4. First Extension Development & Other Extension Prototyping | Develop the first extension and prototype additional ones | Dec 21 |  |
-| 5. User Testing & Evaluation | Gather and analyze user feedback | Dec 25 |  |
+| 3. Main Website Development & First Extension Prototyping | Implement website and design first browser extension | Dec 7 | Completed |
+| 4. First Extension Development & Other Extension Prototyping | Develop the first extension and prototype additional ones | Dec 21 | Completed |
+| 5. User Testing & Evaluation | Gather and analyze user feedback | Dec 25 | Working |
 | 6. Promotional Project Video | Produce final promotional video | Dec 30 |  |
 
 
@@ -92,7 +92,7 @@ project-root/
 4. **Start the development server**
 
    ```bash
-   npm start
+   npm run dev
    ```
 
 5. **Build for production**
