@@ -31,6 +31,8 @@ export default defineConfig(({ mode }) => {
             if (existsSync(contentScriptSrc)) {
               copyFileSync(contentScriptSrc, contentScriptDest)
               console.log('✓ Copied content.js')
+            } else {
+              console.warn('⚠ content.js not found, skipping...')
             }
             
             // Create styles directory
@@ -39,17 +41,20 @@ export default defineConfig(({ mode }) => {
             }
             
             // Copy CSS files
-            const cssFiles = ['protanopia.css', 'tritanopia.css']
+            const cssFiles = ['protanopia.css', 'tritanopia.css', 'deuteranopia.css', 'achromatopsia.css']
             cssFiles.forEach(file => {
               const src = join(cssSrcDir, file)
               const dest = join(cssDestDir, file)
               if (existsSync(src)) {
                 copyFileSync(src, dest)
                 console.log(`✓ Copied ${file}`)
+              } else {
+                console.warn(`⚠ ${file} not found, skipping...`)
               }
             })
           } catch (error) {
-            console.error('Error copying files:', error)
+            console.warn('⚠ Error copying extension files (non-critical):', error.message)
+            // Don't fail the build if extension files are missing
           }
         }
       }
