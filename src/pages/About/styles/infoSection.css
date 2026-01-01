@@ -1,0 +1,61 @@
+.about-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    align-items: center;
+}
+
+h2 {
+    font-family: Inter;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 60px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: rgba(0, 0, 0, 1);
+}
+
+.about-info-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+p {
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 9.6%;
+    color: rgba(0, 0, 0, 1);
+}
+
+blockquote {
+    position: relative;
+    padding: 2rem;
+    margin-block-start: 4rem;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    max-width: 640px;
+}
+
+blockquote::before {
+    content: open-quote;
+    position: absolute;
+    font-size: 4rem;
+    vertical-align: top;
+    color: #000000;
+    top: -25%;
+    left: 5%;
+}
+
+blockquote::after {
+    content: close-quote;
+    position: absolute;
+    font-size: 4rem;
+    vertical-align: bottom;
+    color: #000000;
+    bottom: -45%;
+    right: 5%;
+}
