@@ -1,9 +1,9 @@
 import '../styles/heroSection.css';
 
-function HerSection() {
+function AboutHeroSection() {
     return (
-        <section className='hero-section'>
-            <div className="about-container">
+        <section className='about-hero-section'>
+            <div className="about-hero-container">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -42,4 +42,4 @@ function HerSection() {
     );
 }
 
-export default HerSection;
+export default AboutHeroSection;

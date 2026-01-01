@@ -6,11 +6,10 @@
     align-items: center;
 }
 
-h2 {
-    font-family: Inter;
+.about-info-section h2 {
     font-weight: 700;
     font-style: Bold;
-    font-size: 60px;
+    font-size: 32px;
     line-height: 100%;
     letter-spacing: 0%;
     color: rgba(0, 0, 0, 1);
@@ -18,16 +17,21 @@ h2 {
 
 .about-info-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 1.5rem;
     align-items: center;
 }
 
-p {
+.about-info-container img {
+    width: 90%;
+    height: auto;
+}
+
+.about-info-container p {
     font-weight: 500;
     font-style: Medium;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 14px;
+    line-height: 24px;
     letter-spacing: 9.6%;
     color: rgba(0, 0, 0, 1);
 }
@@ -46,7 +50,7 @@ blockquote::before {
     font-size: 4rem;
     vertical-align: top;
     color: #000000;
-    top: -25%;
+    top: -16%;
     left: 5%;
 }
 
@@ -56,6 +60,95 @@ blockquote::after {
     font-size: 4rem;
     vertical-align: bottom;
     color: #000000;
-    bottom: -45%;
+    bottom: -30%;
     right: 5%;
+}
+
+@media screen and (min-width: 480px) {
+    blockquote::before {
+        content: open-quote;
+        position: absolute;
+        font-size: 4rem;
+        vertical-align: top;
+        color: #000000;
+        top: -22%;
+        left: 5%;
+    }
+
+    blockquote::after {
+        content: close-quote;
+        position: absolute;
+        font-size: 4rem;
+        vertical-align: bottom;
+        color: #000000;
+        bottom: -38%;
+        right: 5%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .about-info-container {
+        flex-direction: row;
+        gap: 3rem;
+    }
+    .about-info-container img {
+        width: 300px;
+        height: auto;
+    }
+
+    .about-info-container p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .about-info-section h2 {
+        font-size: 40px;
+        line-height: 100%;
+    }
+
+    blockquote::before {
+        content: open-quote;
+        position: absolute;
+        font-size: 4rem;
+        vertical-align: top;
+        color: #000000;
+        top: -25%;
+        left: 5%;
+    }
+
+    blockquote::after {
+        content: close-quote;
+        position: absolute;
+        font-size: 4rem;
+        vertical-align: bottom;
+        color: #000000;
+        bottom: -45%;
+        right: 5%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .about-info-container img {
+        width: 500px;
+        height: auto;
+    }
+
+    .about-info-container p {
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 9.6%;
+        color: rgba(0, 0, 0, 1);
+    }
+
+    .about-info-section h2 {
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 60px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: rgba(0, 0, 0, 1);
+    }
+
 }
