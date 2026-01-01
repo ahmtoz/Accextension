@@ -37,6 +37,10 @@ nav ul {
     gap: 1.25rem;
 }
 
+.nav-link {
+    cursor: pointer;
+}
+
 .hamburger {
     display: none;
     cursor: pointer;

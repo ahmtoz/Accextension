@@ -49,7 +49,17 @@ function Navbar () {
             </NavLink>
           </li>
           <li>
-            <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
+            <a
+              className="nav-link"
+              onClick={() => {
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+                setIsOpen(false);
+              }}
+            >
+              Contact
+            </a>
           </li>
         </ul>
       </div>
