@@ -2,7 +2,7 @@ import '../styles/footer.css';
 
 export function Footer() {
   return (
-    <footer>
+    <footer id='contact'>
         <div className="footer-container">
             <div className="header">
                 <p>Easeo</p>

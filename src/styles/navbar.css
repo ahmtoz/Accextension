@@ -21,7 +21,7 @@ nav a {
     color: #000000;
     transition: color 0.8s ease;
 }
-
+nav ul a.active,
 nav ul a:hover {
     background-color: #FFDD50;
     border-radius: .5rem;

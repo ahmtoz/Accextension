@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/navbar.css';
+import { NavLink } from 'react-router-dom';
 import Logo from '../assets/images/logo.png';
 
 function Navbar () {
@@ -25,9 +26,31 @@ function Navbar () {
 
       <div className={`nav-links ${isOpen ? 'open' : ''}`}>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact</a></li>
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
+          </li>
         </ul>
       </div>
     </nav>
