@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     gap: 6rem;
-    display: none;   /* youtubea videomuz yüklendikten sonra bunu kaldır */
 }
 
 .video-section-container h3 {

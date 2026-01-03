@@ -2,17 +2,17 @@ import "../styles/videoSection.css";
 
 function VideoSection() {
   return (
-    <section>
+    <section id="video-section">
         <div className="video-section-container">
             <h3>Explore Our Porducts</h3>
             <div className="video-container">
                 <iframe
-                src="https://www.youtube.com/embed/SOa3vIg8In4?si=vAF4t8tC3qAufrA2"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
+                  src="https://www.youtube.com/embed/aOkLTd7rlNc"
+                  title="YouTube Shorts video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
             </div>
         </div>
     </section>
