@@ -1,5 +1,8 @@
 import '../styles/heroSection.css';
 import heroImage from '../../../assets/images/hero-image.svg';
+import cta1 from '../../../assets/images/cta1.svg';
+import cta2 from '../../../assets/images/cta2.svg';
+
 function HeroSection() {
     return(
         <section>
@@ -12,8 +15,8 @@ function HeroSection() {
                     </div>
                     <p>Easeo provides add-ons for a personalized experience. Overcomes color blindness, dyslexia, ADHD with smart, seamless integration.</p>
                     <div className="cta-buttons">
-                        <button className="get-started">Get Started Free </button>
-                        <button className="video">Watch the Video</button>
+                        <button className="get-started">Get Started Free <img src={cta1} alt="CTA1" /></button>
+                        <button className="video">Watch the Video <img src={cta2} alt="CTA2" /></button>
                     </div>
                 </div>
                 <div className="hero-image hero-image-desktop">
