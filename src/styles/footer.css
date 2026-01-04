@@ -6,26 +6,104 @@ footer {
 
 .footer-container {
     display: flex;
+    flex-direction: column;
     gap: 2.5rem;
-    justify-content: space-between;
-    align-items: flex-start;
 }
 
-.mobile-wrapper {
-    display: contents;
+.footer-container ul {
+    margin-left: 2rem
 }
 
 .footer-container ul li {
-    list-style-type: circle;
+    padding: .5rem .5rem .5rem .25rem;
+    list-style-type: disc;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 1.25rem;
+    line-height: 30px;
+    letter-spacing: 9.6%;
 }
 
+.mobile-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+}
+
+.links img {
+    width: 104px;
+    height: 24px;
+}
+
+.links p {
+    margin-top: 1.5rem;
+}
+
+.contact-info p:nth-child(1) {
+    margin-top: 3rem;
+}
+
+.links p, .contact-info p:nth-child(1) {
+    font-weight: 800;
+    font-style: Extra Bold;
+    font-size: 1.25rem;
+    line-height: 30px;
+    letter-spacing: 9.6%;
+}
+
+.contact-info p:nth-child(2), span {
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 1.25rem;
+    line-height: 30px;
+    letter-spacing: 9.6%;
+}
+
+
 .copyright {
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 1.25rem;
+    line-height: 30px;
+    letter-spacing: 9%;
     text-align: center;
     margin-top: 2rem;
-    font-size: 0.875rem;
     color: #000;
 }
 
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: .875rem;
+}
+
+.contact-info > div{
+    display: flex;
+    gap: .875rem;
+}
+
+.footer-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+}
+
+.contact-info div:nth-of-type(1) img {
+    width: 22px;
+    height: 18px;
+}
+
+.contact-info div:nth-of-type(2) img {
+    width: 18px;
+    height: 22px;
+}
 
 @media screen and (max-width: 768px) {
     footer {
@@ -45,5 +123,16 @@ footer {
     
     .footer-container .links {
         width: 50%;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    footer {
+        padding: 2rem 1rem 1rem 1rem;
+    }
+    .mobile-wrapper {
+        flex-direction: column;
+        gap: 2rem;
     }
 }

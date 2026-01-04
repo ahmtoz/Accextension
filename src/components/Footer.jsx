@@ -1,38 +1,45 @@
 import '../styles/footer.css';
+import FooterLogo from '../assets/images/footer-logo.png';
+import EmailIcon from '../assets/images/footer-mail.png';
+import LocationIcon from '../assets/images/footer-location.png';
 
 export function Footer() {
   return (
     <footer id='contact'>
         <div className="footer-container">
-            <div className="header">
-                <p>Easeo</p>
-            </div>
             <div className="mobile-wrapper">
                 <div className="links">
-                    <p>Useful Links</p>
+                    <a href="#hero">
+                        <img src={FooterLogo} alt="Footer Logo" />
+                    </a>
+                    <p>Quick Links</p>
                     <ul>
                         <li><a href="#hero">Home</a></li>
-                        <li><a href="#info">Extension</a></li>
-                        <li><a href="#features">User guide</a></li>
-                        <li><a href="#contact">About us</a></li>
+                        <li><a href="#">Extensions</a></li>
+                        <li><a href="#">User guide</a></li>
+                        <li><a href="#about-us">About us</a></li>
                     </ul>
                 </div>
                 <div className='contact-info'>
-                    <p>Contact info</p>
-                    <p>Have questions? Reach out to us.</p>
+                    <p>Contact Us</p>
+                    <p>Have questions or feedbacks? Reached out to us. </p>
                     <div>
-                        <img src="" alt="" />
-                        <span>easeo@gmail.com</span>
+                        <div className="footer-icon-container">
+                            <img src={EmailIcon} alt="Email Icon" />
+                        </div>
+                        <span>easeo.offical@gmail.com</span>
                     </div>
                     <div>
-                        <img src="" alt="" />
+                        <div className="footer-icon-container">
+                            <img src={LocationIcon} alt="Location Icon" />
+                        </div>
                         <span>Ankara / Turkey</span>
                     </div>
                 </div>
             </div>
         </div>
         <div className="copyright">
-            <p>© 2025 Easeo - All rights reserved.</p>
+            <p>© 2025 - Easeo - All rights reserved.</p>
         </div>
     </footer>
   );

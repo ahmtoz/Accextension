@@ -5,7 +5,7 @@ import cta2 from '../../../assets/images/cta2.svg';
 
 function HeroSection() {
     return(
-        <section>
+        <section id='hero'>
             <div className="container">
                 <div className="hero-information">
                     <h4>“Making the internet comfortable for everyone.”</h4>
