@@ -1,4 +1,5 @@
 import '../styles/footer.css';
+import { NavLink } from 'react-router-dom';
 import FooterLogo from '../assets/images/footer-logo.png';
 import EmailIcon from '../assets/images/footer-mail.png';
 import LocationIcon from '../assets/images/footer-location.png';
@@ -14,10 +15,26 @@ export function Footer() {
                     </a>
                     <p>Quick Links</p>
                     <ul>
-                        <li><a href="#hero">Home</a></li>
+                        <li><a
+                        href='#'
+                        onClick={() => {
+                            document
+                            .getElementById("contact")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                        >Home</a></li>
                         <li><a href="#">Extensions</a></li>
                         <li><a href="#">User guide</a></li>
-                        <li><a href="#about-us">About us</a></li>
+                        <li>
+                            <NavLink
+                                to="/about"
+                                className={({ isActive }) =>
+                                    isActive ? "active" : ""
+                                }
+                                onClick={() => window.scrollTo(0, 0)}
+                                >About us
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
                 <div className='contact-info'>

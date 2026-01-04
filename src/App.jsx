@@ -1,4 +1,3 @@
-import React from 'react';
 import './index.css';
 import Home from './pages/Home/Home.jsx';
 import About from './pages/About/About.jsx';
