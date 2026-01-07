@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { copyFileSync, mkdirSync, existsSync } from 'fs'
@@ -10,7 +11,8 @@ export default defineConfig(({ mode }) => {
   // Change '/Easeo/' to match your GitHub repository name
   // If your repo is at github.com/username/Easeo, use '/Easeo/'
   // If it's the main repo (github.com/username/username.github.io), use '/'
-  const isProduction = mode === 'production'
+  const isExtension = mode === 'extension'
+  const isGithub = mode === 'github'
   
   return {
     plugins: [
@@ -59,7 +61,7 @@ export default defineConfig(({ mode }) => {
         }
       }
     ],
-    base: isProduction ? '/Easeo/' : '/',
+    base: isExtension ? './' : '/Easeo/',
     build: {
       rollupOptions: {
         input: {
