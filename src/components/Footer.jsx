@@ -23,8 +23,6 @@ export function Footer() {
                             ?.scrollIntoView({ behavior: "smooth" });
                         }}
                         >Home</a></li>
-                        <li><a href="#">Extensions</a></li>
-                        <li><a href="#">User guide</a></li>
                         <li>
                             <NavLink
                                 to="/about"

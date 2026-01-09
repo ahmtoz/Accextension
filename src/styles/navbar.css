@@ -7,6 +7,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 6.25rem 10rem 4.75rem 10rem;
+    max-width: 1700px;
+    margin-inline: auto;
 }
 
 nav .nav-logo {
@@ -21,8 +23,9 @@ nav a {
     line-height: 30px;
     letter-spacing: 9.6%;
     text-decoration: none;
+    border-radius: .5rem;
     color: #000000;
-    transition: color 0.8s ease;
+    transition: background-color .2s ease;
 }
 nav ul a.active,
 nav ul a:hover {
