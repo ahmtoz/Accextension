@@ -37,6 +37,7 @@ section {
     max-width: 19rem;
     padding: 1.25rem;
     background-color: #fff;
+    border-radius: .5rem;
 }
 
 .features-items-container > div:nth-child(1)::before {
