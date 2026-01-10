@@ -91,7 +91,7 @@ blockquote::after {
 
 @media screen and (min-width: 1024px) {
     .about-info-container img {
-        width: 500px;
+        width: 350px;
         height: auto;
     }
 
@@ -111,4 +111,11 @@ blockquote::after {
         color: rgba(0, 0, 0, 1);
     }
 
+}
+
+@media screen and (min-width: 1280px) {
+    .about-info-container img {
+        width: 500px;
+        height: auto;
+    }
 }
