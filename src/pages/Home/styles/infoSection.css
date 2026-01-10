@@ -9,58 +9,96 @@
 .info-header {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 1rem;
     text-align: center;
 }
 
 .info-header h2 {
-    line-height: 100%;
-    letter-spacing: 0%;
-    font-size: 3.75rem;
     font-weight: 700;
+    font-size: 2rem;
+    line-height: 100%;
+    text-align: center;
     color: #333;
 }
 
 .info-header p {
-    letter-spacing: 9.6%;
-    font-size: 1.25rem;
-    line-height: 30px;
     font-weight: 500;
+    font-size: 1rem;
+    line-height: 30px;
+    letter-spacing: 9.6%;
+    text-align: center;
     color: #333;
 }
 
 .info-items-container {
     display: flex;
-    justify-content: space-between;
-    gap: 6rem;
+    flex-direction: column;
+    gap: 3rem;
 }
 
 .info-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     min-width: 12rem;
-    max-width: 20.5rem;
+    max-width: 21rem;
 }
 
 .info-item img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
 }
 
 .info-item p {
-    letter-spacing: 9.6%;
-    font-size: 1.25rem;
-    line-height: 30px;
     font-weight: 500;
+    font-size: .875rem;
+    line-height: 30px;
+    letter-spacing: 9.6%;
     text-align: center;
     color: #333;
 }
 
-@media screen and (max-width: 768px) {
-    .info-items-container {
-        flex-direction: column;
+@media screen and (min-width: 768px) {
+    .info-header {
         gap: 3rem;
+    }
+
+    .info-header h2 {
+        font-weight: 700;
+        font-size: 3.75rem;
+        line-height: 100%;
+        color: #333;
+    }
+
+    .info-header p {
+        font-weight: 500;
+        font-size: 1.25rem;
+        line-height: 30px;
+        letter-spacing: 9.6%;
+        color: #333;
+    }
+
+    .info-items-container {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+
+    .info-item {
+        gap: 2rem;
+    }
+
+    .info-item img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .info-item p {
+        font-weight: 500;
+        font-size: 1.25rem;
+        line-height: 30px;
+        letter-spacing: 9.6%;
+        color: #333;
     }
 }
