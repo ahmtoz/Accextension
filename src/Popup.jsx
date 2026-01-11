@@ -113,8 +113,8 @@ function Popup() {
       <div className='popup-options'>
         <div className="option">
           <div className="option-info">
-            <img src="" alt="IMG1" />
-            <span>Protanopia</span>
+            <img src="/images/protanopia.jpg" alt="Protanopia" style={{"height": "24px", "width": "43px"}}/>
+            <span style={{paddingLeft: "12px"}}>Protanopia</span>
           </div>
           <input 
             type="radio" 
@@ -126,8 +126,8 @@ function Popup() {
         </div>
         <div className="option">
           <div className="option-info">
-            <img src="" alt="IMG2" />
-            <span>Tritanopia</span>
+            <img src="/images/tritanopia.jpg" alt="Tritanopia" style={{"height": "24px", "width": "43px"}}/>
+            <span style={{paddingLeft: "12px"}}>Tritanopia</span>
           </div>
           <input 
             type="radio" 
@@ -139,8 +139,8 @@ function Popup() {
         </div>
         <div className="option">
           <div className="option-info">
-            <img src="" alt="IMG2" />
-            <span>Deuteranopia</span>
+            <img src="/images/deutritanopia.jpg" alt="Deuteranopia" style={{"height": "24px", "width": "43px"}}/>
+            <span style={{paddingLeft: "12px"}}>Deuteranopia</span>
           </div>
           <input 
             type="radio" 
@@ -152,8 +152,8 @@ function Popup() {
         </div>
         <div className="option">
           <div className="option-info">
-            <img src="" alt="IMG2" />
-            <span>Achromatopsia</span>
+            <img src="/images/achromotopsia.jpg" alt="Achromatopsia" style={{"height": "24px", "width": "43px"}} />
+            <span style={{paddingLeft: "12px"}}>Achromatopsia</span>
           </div>
           <input 
             type="radio" 

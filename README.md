@@ -19,9 +19,7 @@ The project also includes a **promotional video** to communicate the final produ
 ---
 
 ## ⚙️ Tech Stack
-- **Frontend:** React, TailwindCSS  
-- **Backend:** Node.js (Express)  
-- **Database:** Firebase / JSON Server (depending on implementation)  
+- **Frontend:** React, TailwindCSS   
 - **Extension:** Chrome Manifest v3  
 - **Version Control:** Git + GitHub  
 - **Design Tools:** Figma, Canva  
@@ -48,15 +46,35 @@ The project also includes a **promotional video** to communicate the final produ
 
 project-root/
 │
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── extensions/
+├── dist/
 │   ├── assets/
-│   └── utils/
+│   ├── images/
+│   └── styles/
 │
 ├── public/
-│   └── index.html
+│   └── images/
+│
+├── src/
+│   ├── assets/
+│   │   └── images/
+│   │
+│   ├── components/
+│   │   └── UI/
+│   │
+│   ├── pages/
+│   │   ├── Home/
+│   │   │   ├── sections/
+│   │   │   └── styles/
+│   │   │
+│   │   ├── About/
+│   │   │   ├── sections/
+│   │   │   └── styles/
+│   │   │
+│   │   └── Extensions/
+│   │       └── colorblind/
+│   │           └── styles/
+│   │
+│   └── styles/
 │
 ├── extension/
 │   ├── manifest.json
@@ -95,12 +113,16 @@ project-root/
    npm run dev
    ```
 
-5. **Build for production**
+5. **Build for production homepage**
 
    ```bash
-   npm run build
+   npm run build:github
    ```
 
+6. **Build for production extension**
+   ```bash
+   npm run build:extension
+   ```
 ---
 
 ## 🧩 Key Features
