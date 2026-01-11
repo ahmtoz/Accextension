@@ -8,6 +8,7 @@ section {
     align-items: center;
     gap: 3rem;
     max-width: 1200px;
+    margin-inline: auto;
 }
 
 .features-container h2 {
