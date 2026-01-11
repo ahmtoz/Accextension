@@ -11,7 +11,7 @@ function HeroSection() {
                     <h4>“Making the internet comfortable for everyone.”</h4>
                     <h1>Unlock the Web's Full Potential</h1>
                     <div className="hero-image hero-image-mobile">
-                        <img src={heroImage} alt="Hero Image" />
+                        <img src={heroImage} loading="eager" fetchpriority="high" alt="Hero Image" />
                     </div>
                     <p>Easeo provides add-ons for a personalized experience. Overcomes color blindness, dyslexia, ADHD with smart, seamless integration.</p>
                     <div className="cta-buttons">
