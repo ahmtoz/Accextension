@@ -35,8 +35,8 @@ The project also includes a **promotional video** to communicate the final produ
 | 2. Main Website Prototyping | Create structure, wireframes, and visual prototype | Nov 23 | Completed on Nov 23 |
 | 3. Main Website Development & First Extension Prototyping | Implement website and design first browser extension | Dec 7 | Completed |
 | 4. First Extension Development & Other Extension Prototyping | Develop the first extension and prototype additional ones | Dec 21 | Completed |
-| 5. User Testing & Evaluation | Gather and analyze user feedback | Dec 25 | Working |
-| 6. Promotional Project Video | Produce final promotional video | Dec 30 |  |
+| 5. User Testing & Evaluation | Gather and analyze user feedback | Dec 25 - Jan 10 | Completed |
+| 6. Promotional Project Video | Produce final promotional video | Dec 30 | Completed |
 
 
 ---
