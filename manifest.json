@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Easeo",
+  "name": "Accextension",
   "version": "1.0.1",
   "description": "Accessibility extension for color blindness support",
   "action": {
