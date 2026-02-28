@@ -2,11 +2,11 @@
 let styleElement = null;
 
 function injectSVGFilters() {
-  if (document.getElementById("accease-colorblind-filters")) return;
+  if (document.getElementById("accextension-colorsense-filters")) return;
 
   const svgNS = "http://www.w3.org/2000/svg";
   const svg = document.createElementNS(svgNS, "svg");
-  svg.id = "accease-colorblind-filters";
+  svg.id = "accextension-colorsense-filters";
   svg.setAttribute("style", "display: none; height: 0; width: 0; position: absolute;");
 
   // Protanopia matrix based on Daltonization principles (approximate for demonstration)
@@ -18,6 +18,15 @@ function injectSVGFilters() {
           0.567  0.433  0.000  0.000  0
           0.558  0.442  0.000  0.000  0
           0.000  0.242  0.758  0.000  0
+          0      0      0      1      0
+        "/>
+      </filter>
+      <!-- Tritanopia matrix -->
+      <filter id="accextension-tritanopia" color-interpolation-filters="linearRGB">
+        <feColorMatrix type="matrix" values="
+          0.950  0.050  0.000  0.000  0
+          0.000  0.433  0.567  0.000  0
+          0.000  0.475  0.525  0.000  0
           0      0      0      1      0
         "/>
       </filter>
