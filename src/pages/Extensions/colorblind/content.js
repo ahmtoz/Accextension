@@ -21,6 +21,15 @@ function injectSVGFilters() {
           0      0      0      1      0
         "/>
       </filter>
+      <!-- Deuteranopia matrix -->
+      <filter id="accextension-deuteranopia" color-interpolation-filters="linearRGB">
+        <feColorMatrix type="matrix" values="
+          0.625  0.375  0.000  0.000  0
+          0.700  0.300  0.000  0.000  0
+          0.000  0.300  0.700  0.000  0
+          0      0      0      1      0
+        "/>
+      </filter>
       <!-- Tritanopia matrix -->
       <filter id="accextension-tritanopia" color-interpolation-filters="linearRGB">
         <feColorMatrix type="matrix" values="
