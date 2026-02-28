@@ -39,6 +39,15 @@ function injectSVGFilters() {
           0      0      0      1      0
         "/>
       </filter>
+      <!-- Achromatopsia matrix -->
+      <filter id="accextension-achromatopsia" color-interpolation-filters="linearRGB">
+        <feColorMatrix type="matrix" values="
+          0.299  0.587  0.114  0.000  0
+          0.299  0.587  0.114  0.000  0
+          0.299  0.587  0.114  0.000  0
+          0      0      0      1      0
+        "/>
+      </filter>
     </defs>
   `;
 
