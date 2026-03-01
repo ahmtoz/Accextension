@@ -27,7 +27,7 @@ h3 {
     line-height: 1.75rem;
 }
 
-.popup-options{
+.popup-options {
     display: flex;
     flex-direction: column;
     gap: .5rem;
@@ -68,7 +68,6 @@ input:hover {
 }
 
 button {
-    background-color: rgba(255, 221, 80, 1);
     color: rgba(51, 51, 51, 1);
     border: 1px solid rgba(0, 0, 0, 1);
     padding: .5rem 1rem;
@@ -78,6 +77,18 @@ button {
     transition: background-color .2s ease;
 }
 
-button:hover {
+button:nth-child(1) {
+    background-color: rgba(255, 221, 80, 1);
+}
+
+button:nth-child(2) {
+    background-color: rgba(250, 250, 250, 1);
+}
+
+button:nth-child(1):hover {
     background-color: rgba(255, 240, 144, 1);
+}
+
+button:nth-child(2):hover {
+    background-color: rgba(255, 252, 231, 1)
 }
