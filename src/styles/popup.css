@@ -92,3 +92,39 @@ button:nth-child(1):hover {
 button:nth-child(2):hover {
     background-color: rgba(255, 252, 231, 1)
 }
+
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.menu-btn {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: left;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #333;
+}
+
+.menu-btn:first-child {
+    background-color: #fff;
+}
+
+.menu-btn:nth-child(2) {
+    background-color: #fff;
+}
+
+.menu-btn:hover {
+    background-color: #f9f9f9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-color: #ccc;
+}
