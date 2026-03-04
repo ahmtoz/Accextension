@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './styles/colorsense.css';
 
 /* eslint-disable no-undef */
 function ColorSense({ onBack }) {
@@ -108,9 +109,9 @@ function ColorSense({ onBack }) {
 
     return (
         <div className="popup-container">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
                 <h3>ColorSense</h3>
-                <button type="button" onClick={onBack}>Back to Menu</button>
+                <button onClick={onBack}>Back to Menu</button>
             </div>
             <div className='popup-options'>
                 <div className="option">

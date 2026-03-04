@@ -1,7 +1,7 @@
 function ReadEase({ onBack }) {
     return (
         <div className="popup-container">
-            <div    >
+            <div>
                 <h3>ReadEase</h3>
                 <button type="button" onClick={onBack}>Back to Menu</button>
             </div>
