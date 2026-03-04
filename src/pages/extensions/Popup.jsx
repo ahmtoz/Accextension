@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import './styles/popup.css';
-import ColorSense from './components/ColorSense';
-import ReadEase from './components/ReadEase';
-import KeyNav from './components/KeyNav';
+import './popup.css';
+import ColorSense from './colorsense/ColorSense';
+import ReadEase from './readease/ReadEase';
+import KeyNav from './keynav/KeyNav';
 
 function Popup() {
   const [activeTab, setActiveTab] = useState(null);

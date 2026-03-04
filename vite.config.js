@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
   // If it's the main repo (github.com/username/username.github.io), use '/'
   const isExtension = mode === 'extension'
   const isGithub = mode === 'github'
-  
+
   return {
     plugins: [
       react(),
@@ -21,13 +21,13 @@ export default defineConfig(({ mode }) => {
         name: 'copy-content-script',
         closeBundle() {
           // Copy content script
-          const contentScriptSrc = join(__dirname, 'src/pages/Extensions/colorblind/content.js')
+          const contentScriptSrc = join(__dirname, 'src/pages/extensions/colorsense/content.js')
           const contentScriptDest = join(__dirname, 'dist/content.js')
-          
+
           // Copy CSS files
-          const cssSrcDir = join(__dirname, 'src/pages/Extensions/colorblind/styles')
+          const cssSrcDir = join(__dirname, 'src/pages/extensions/colorsense/styles')
           const cssDestDir = join(__dirname, 'dist/styles')
-          
+
           try {
             // Copy content script
             if (existsSync(contentScriptSrc)) {
@@ -36,12 +36,12 @@ export default defineConfig(({ mode }) => {
             } else {
               console.warn('⚠ content.js not found, skipping...')
             }
-            
+
             // Create styles directory
             if (!existsSync(cssDestDir)) {
               mkdirSync(cssDestDir, { recursive: true })
             }
-            
+
             // Copy CSS files
             const cssFiles = ['protanopia.css', 'tritanopia.css', 'deuteranopia.css', 'achromatopsia.css']
             cssFiles.forEach(file => {

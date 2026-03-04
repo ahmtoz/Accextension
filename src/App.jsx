@@ -1,6 +1,6 @@
 import './index.css';
-import Home from './pages/Home/Home.jsx';
-import About from './pages/About/About.jsx';
+import Home from './pages/home/Home.jsx';
+import About from './pages/about/About.jsx';
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -12,4 +12,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
