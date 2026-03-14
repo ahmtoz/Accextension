@@ -22,27 +22,27 @@ function Popup() {
   return (
     <div className="popup-container">
       <h3>Accextension</h3>
-      <p>
-        Select an accessibility tool to customize your experience.
-      </p>
 
       <div className="main-menu">
         <button
           className="menu-btn"
           onClick={() => setActiveTab('colorsense')}
         >
+          <img src="/images/extension-tab-colorsense.svg" alt="ColorSense" />
           <span>ColorSense</span>
         </button>
         <button
           className="menu-btn"
           onClick={() => setActiveTab('readease')}
         >
+          <img src="/images/extension-tab-readease.svg" alt="ReadEase" />
           <span>ReadEase</span>
         </button>
         <button
           className="menu-btn"
           onClick={() => setActiveTab('keynav')}
         >
+          <img src="/images/extension-tab-keynav.svg" alt="KeyNav" />
           <span>KeyNav</span>
         </button>
       </div>

@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: "Inter", sans-serif;
+    font-family: "DM Sans", sans-serif;
     background-color: #f9f9f9;
     color: #333;
 }
@@ -15,50 +15,45 @@ body {
     flex-direction: column;
     gap: 1rem;
     width: 20rem;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px 0px #0A0B0D52, 0px 0px 2px 0px #0000000A;
+    border: 0.5px solid #33333380;
+    border-radius: .5rem;
     background-color: #fff;
     padding: 1rem;
 }
 
 h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.75rem;
+    font-size: .875rem;
+    font-weight: 700;
 }
 
 .main-menu {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-direction: row;
 }
 
 .menu-btn {
-    background-color: #fff;
-    border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 1rem;
-    font-size: 1.1rem;
-    font-weight: 500;
-    text-align: left;
+    border: none;
+    padding: .25rem .75rem;
+    font-size: .875rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+    text-align: center;
     transition: all 0.2s ease;
     display: flex;
+    flex-direction: column;
+    flex: 1;
     align-items: center;
-    gap: 1rem;
-    color: #333;
+    color: #595D62;
 }
 
-.menu-btn:first-child {
-    background-color: #fff;
-}
-
-.menu-btn:nth-child(2) {
-    background-color: #fff;
+.menu-btn img {
+    width: 24px;
+    height: 21px;
 }
 
 .menu-btn:hover {
-    background-color: #f9f9f9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border-color: #ccc;
+    background-color: #FFFCE7;
+    color: #000;
 }
