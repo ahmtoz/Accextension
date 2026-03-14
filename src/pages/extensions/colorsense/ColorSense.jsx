@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './styles/colorsense.css';
 
 /* eslint-disable no-undef */
-function ColorSense({ onBack }) {
+function ColorSense() {
     const [selectedType, setSelectedType] = useState(null);
 
     const handleApply = async () => {
@@ -108,11 +108,7 @@ function ColorSense({ onBack }) {
     };
 
     return (
-        <div className="popup-container">
-            <div>
-                <h3>ColorSense</h3>
-                <button onClick={onBack}>Back to Menu</button>
-            </div>
+        <div className="colorsense-content">
             <div className='popup-options'>
                 <div className="option">
                     <div className="option-info">

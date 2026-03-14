@@ -1,10 +1,6 @@
-function ReadEase({ onBack }) {
+function ReadEase() {
     return (
-        <div className="popup-container">
-            <div>
-                <h3>ReadEase</h3>
-                <button type="button" onClick={onBack}>Back to Menu</button>
-            </div>
+        <div className="readease-content">
             <div>
                 <p>ReadEase settings will go here.</p>
             </div>

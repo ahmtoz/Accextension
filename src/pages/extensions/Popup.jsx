@@ -5,19 +5,7 @@ import ReadEase from './readease/ReadEase';
 import KeyNav from './keynav/KeyNav';
 
 function Popup() {
-  const [activeTab, setActiveTab] = useState(null);
-
-  if (activeTab === 'colorsense') {
-    return <ColorSense onBack={() => setActiveTab(null)} />;
-  }
-
-  if (activeTab === 'readease') {
-    return <ReadEase onBack={() => setActiveTab(null)} />;
-  }
-
-  if (activeTab === 'keynav') {
-    return <KeyNav onBack={() => setActiveTab(null)} />;
-  }
+  const [activeTab, setActiveTab] = useState('colorsense');
 
   return (
     <div className="popup-container">
@@ -25,26 +13,32 @@ function Popup() {
 
       <div className="main-menu">
         <button
-          className="menu-btn"
+          className={`menu-btn ${activeTab === 'colorsense' ? 'active' : ''}`}
           onClick={() => setActiveTab('colorsense')}
         >
           <img src="/images/extension-tab-colorsense.svg" alt="ColorSense" />
           <span>ColorSense</span>
         </button>
         <button
-          className="menu-btn"
+          className={`menu-btn ${activeTab === 'readease' ? 'active' : ''}`}
           onClick={() => setActiveTab('readease')}
         >
           <img src="/images/extension-tab-readease.svg" alt="ReadEase" />
           <span>ReadEase</span>
         </button>
         <button
-          className="menu-btn"
+          className={`menu-btn ${activeTab === 'keynav' ? 'active' : ''}`}
           onClick={() => setActiveTab('keynav')}
         >
           <img src="/images/extension-tab-keynav.svg" alt="KeyNav" />
           <span>KeyNav</span>
         </button>
+      </div>
+
+      <div className="tab-content">
+        {activeTab === 'colorsense' && <ColorSense />}
+        {activeTab === 'readease' && <ReadEase />}
+        {activeTab === 'keynav' && <KeyNav />}
       </div>
     </div>
   );
