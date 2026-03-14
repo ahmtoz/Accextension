@@ -33,6 +33,10 @@ h3 {
 }
 
 .menu-btn {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
     border-radius: 8px;
     border: none;
     padding: .25rem .75rem;
@@ -41,10 +45,7 @@ h3 {
     font-weight: 700;
     text-align: center;
     transition: all 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: center;
+    background-color: #fff;
     color: #595D62;
 }
 
@@ -57,6 +58,7 @@ h3 {
 .menu-btn.active {
     background-color: #FFFCE7;
     color: #000;
+    cursor: pointer;
 }
 
 .tab-content {
@@ -70,6 +72,7 @@ h3 {
     display: flex;
     justify-content: flex-end;
     gap: .5rem;
+    margin-top: .75rem;
 }
 
 .popup-buttons button {
