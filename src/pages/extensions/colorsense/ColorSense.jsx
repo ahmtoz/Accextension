@@ -125,7 +125,7 @@ function ColorSense() {
                 </div>
                 <div className="option">
                     <div className="option-info">
-                        <img src="/images/tritanopia.jpg" alt="Tritanopia" />
+                        <img src="/images/colorsense-option-tritanopia.svg" alt="Tritanopia" />
                         <span>Tritanopia</span>
                     </div>
                     <input
@@ -138,7 +138,7 @@ function ColorSense() {
                 </div>
                 <div className="option">
                     <div className="option-info">
-                        <img src="/images/deutritanopia.jpg" alt="Deuteranopia" />
+                        <img src="/images/colorsense-option-deuteranopia.svg" alt="Deuteranopia" />
                         <span>Deuteranopia</span>
                     </div>
                     <input
@@ -151,7 +151,7 @@ function ColorSense() {
                 </div>
                 <div className="option">
                     <div className="option-info">
-                        <img src="/images/achromotopsia.jpg" alt="Achromatopsia" />
+                        <img src="/images/colorsense-option-achromatopsia.svg" alt="Achromatopsia" />
                         <span>Achromatopsia</span>
                     </div>
                     <input
