@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Accextension",
-  "version": "1.0.2",
-  "description": "Accessibility extension for color blindness support",
+  "version": "1.0.3",
+  "description": "Accessibility extension for everyone",
   "icons": {
     "16": "images/icon16.png",
     "32": "images/icon32.png",
