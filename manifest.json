@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Accextension",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Accessibility extension for color blindness support",
   "icons": {
     "16": "images/icon16.png",
@@ -24,8 +24,12 @@
   ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"],
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_end"
     }
   ],
@@ -37,7 +41,9 @@
         "styles/deuteranopia.css",
         "styles/achromatopsia.css"
       ],
-      "matches": ["<all_urls>"]
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ]
 }
