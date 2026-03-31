@@ -104,25 +104,28 @@ function removeCSS() {
 }
 
 // Listen for messages from popup
+// src/pages/extensions/colorsense/content.js
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  try {
-    if (message.action === "ping") {
-      sendResponse({ success: true });
-    } else if (message.action === "applyColorBlind") {
-      if (message.type) {
-        injectCSS(message.type);
-        sendResponse({ success: true, type: message.type });
-      } else {
-        sendResponse({ success: false, error: "No color type specified" });
+  // SADECE ColorSense mesajlarını filtrele
+  if (["ping", "applyColorBlind", "removeColorBlind"].includes(message.action)) {
+    try {
+      if (message.action === "ping") {
+        sendResponse({ success: true });
+      } else if (message.action === "applyColorBlind") {
+        if (message.type) {
+          injectCSS(message.type);
+          sendResponse({ success: true, type: message.type });
+        } else {
+          sendResponse({ success: false, error: "No color type specified" });
+        }
+      } else if (message.action === "removeColorBlind") {
+        removeCSS();
+        sendResponse({ success: true });
       }
-    } else if (message.action === "removeColorBlind") {
-      removeCSS();
-      sendResponse({ success: true });
+    } catch (error) {
+      console.error("Error in ColorSense:", error);
+      sendResponse({ success: false, error: error.message });
     }
-    return true; // Keep the message channel open for async response
-  } catch (error) {
-    console.error("Error in content script:", error);
-    sendResponse({ success: false, error: error.message });
-    return true;
+    return true; // Sadece bu mesajları işlediysek true dön
   }
 });
