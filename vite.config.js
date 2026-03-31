@@ -21,8 +21,8 @@ export default defineConfig(({ mode }) => {
         name: 'copy-content-script',
         closeBundle() {
           // Copy content script
-          const contentScriptSrc = join(__dirname, 'src/pages/extensions/colorsense/content.js')
-          const contentScriptDest = join(__dirname, 'dist/content.js')
+          const contentScriptSrc = join(__dirname, 'src/pages/extensions/colorsense/content-colorsense.js')
+          const contentScriptDest = join(__dirname, 'dist/content-colorsense.js')
 
           // Copy CSS files
           const cssSrcDir = join(__dirname, 'src/pages/extensions/colorsense/styles')
@@ -35,6 +35,17 @@ export default defineConfig(({ mode }) => {
               console.log('✓ Copied content.js')
             } else {
               console.warn('⚠ content.js not found, skipping...')
+            }
+
+            // Copy ReadEase content script
+            const readeaseSrc = join(__dirname, 'src/pages/extensions/readease/content-readease.js')
+            const readeaseDest = join(__dirname, 'dist/content-readease.js')
+
+            if (existsSync(readeaseSrc)) {
+              copyFileSync(readeaseSrc, readeaseDest)
+              console.log('✓ Copied content-readease.js')
+            } else {
+              console.warn('⚠ readease content.js not found, skipping...')
             }
 
             // Create styles directory
