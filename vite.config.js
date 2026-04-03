@@ -48,6 +48,17 @@ export default defineConfig(({ mode }) => {
               console.warn('⚠ readease content.js not found, skipping...')
             }
 
+            // Copy KeyNav content script
+            const keynavSrc = join(__dirname, 'src/pages/extensions/keynav/content-keynav.js')
+            const keynavDest = join(__dirname, 'dist/content-keynav.js')
+
+            if (existsSync(keynavSrc)) {
+              copyFileSync(keynavSrc, keynavDest)
+              console.log('✓ Copied content-keynav.js')
+            } else {
+              console.warn('⚠ keynav content.js not found, skipping...')
+            }
+
             // Create styles directory
             if (!existsSync(cssDestDir)) {
               mkdirSync(cssDestDir, { recursive: true })

@@ -15,7 +15,6 @@ body {
     flex-direction: column;
     gap: 1rem;
     width: 292px;
-    box-shadow: 0px 4px 8px 0px #0A0B0D52, 0px 0px 2px 0px #0000000A;
     background-color: #fff;
     padding: 1rem;
 }
