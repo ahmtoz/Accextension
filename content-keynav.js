@@ -21,7 +21,6 @@ function applyKeyNav() {
       transition: outline-offset 0.1s ease-in-out !important;
     }
 
-    /* Input fields and Textareas */
     input:not([type="radio"]):not([type="checkbox"]):focus-visible, 
     textarea:focus-visible {
       outline: 3px solid #0f172a !important;
@@ -30,14 +29,12 @@ function applyKeyNav() {
       border-color: #0f172a !important;
     }
 
-    /* Select Dropdowns */
     select:focus-visible {
       outline: 3px dashed #000000 !important;
       outline-offset: 2px !important;
       box-shadow: none !important;
     }
 
-    /* Checkboxes and Radio buttons */
     input[type="checkbox"]:focus-visible,
     input[type="radio"]:focus-visible {
       outline: 3px solid #1e3a8a !important;
