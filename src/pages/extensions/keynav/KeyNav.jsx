@@ -69,8 +69,6 @@ function KeyNav() {
             chrome.tabs.sendMessage(tab.id, { action: 'removeKeyNav' }, () => {
                 if (chrome.runtime.lastError) {
                     console.error('Error:', chrome.runtime.lastError);
-                } else {
-                    setIsFocusEnabled(false);
                 }
             });
         } catch (error) {
