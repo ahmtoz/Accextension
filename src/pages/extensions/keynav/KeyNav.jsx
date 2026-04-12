@@ -1,9 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './keynav.css';
 
 /* eslint-disable no-undef */
 function KeyNav() {
-    const [isFocusEnabled, setIsFocusEnabled] = useState(false);
+    const [activeFeatures, setActiveFeatures] = useState({
+        focus: false,
+        skipToMainContent: false
+    });
+
+    useEffect(() => {
+        const fetchState = async () => {
+            try {
+                const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+                if (!tab) return;
+                chrome.tabs.sendMessage(tab.id, { action: 'pingKeyNav' }, (response) => {
+                    if (!chrome.runtime.lastError && response && response.activeFeatures) {
+                        setActiveFeatures(response.activeFeatures);
+                    }
+                });
+            } catch (err) {
+                console.error(err);
+            }
+        };
+        fetchState();
+    }, []);
 
     const handleApply = async () => {
         try {
@@ -50,11 +70,10 @@ function KeyNav() {
 
             if (!scriptInjected) return;
 
-            chrome.tabs.sendMessage(tab.id, { action: 'applyKeyNav' }, (response) => {
+            const types = Object.keys(activeFeatures).filter(k => activeFeatures[k]);
+            chrome.tabs.sendMessage(tab.id, { action: 'applyKeyNav', types }, (response) => {
                 if (chrome.runtime.lastError) {
                     console.error('Error:', chrome.runtime.lastError);
-                } else {
-                    setIsFocusEnabled(true);
                 }
             });
         } catch (error) {
@@ -69,6 +88,8 @@ function KeyNav() {
             chrome.tabs.sendMessage(tab.id, { action: 'removeKeyNav' }, () => {
                 if (chrome.runtime.lastError) {
                     console.error('Error:', chrome.runtime.lastError);
+                } else {
+                    setActiveFeatures({ focus: false, skipToMainContent: false });
                 }
             });
         } catch (error) {
@@ -84,11 +105,22 @@ function KeyNav() {
                         <span>Global Focus Indicator</span>
                     </div>
                     <input
-                        type="radio"
-                        checked={isFocusEnabled}
+                        type="checkbox"
+                        checked={activeFeatures.focus}
                         onChange={(e) => {
-                            if (e.target.checked) handleApply();
-                            else handleRemove();
+                            setActiveFeatures(prev => ({ ...prev, focus: e.target.checked }));
+                        }}
+                    />
+                </div>
+                <div className="option">
+                    <div className="option-info">
+                        <span>Skip to Main Content</span>
+                    </div>
+                    <input
+                        type="checkbox"
+                        checked={activeFeatures.skipToMainContent}
+                        onChange={(e) => {
+                            setActiveFeatures(prev => ({ ...prev, skipToMainContent: e.target.checked }));
                         }}
                     />
                 </div>
