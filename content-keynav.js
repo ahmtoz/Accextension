@@ -1,9 +1,13 @@
 const KEYNAV_STYLE_ID = 'accextension-keynav-styles';
 const KEYNAV_SKIP_ID = 'accextension-keynav-skip-link';
+const KEYNAV_SKIP_STYLE_ID = 'accextension-keynav-skip-styles';
 
 function removeKeyNav() {
   const styleEl = document.getElementById(KEYNAV_STYLE_ID);
   if (styleEl) styleEl.remove();
+
+  const skipStyleEl = document.getElementById(KEYNAV_SKIP_STYLE_ID);
+  if (skipStyleEl) skipStyleEl.remove();
 
   const skipEl = document.getElementById(KEYNAV_SKIP_ID);
   if (skipEl) skipEl.remove();
@@ -90,36 +94,172 @@ function applyKeyNavSkipToMainContent() {
     targetElement.style.outline = 'none';
   }
 
-  const skipToMainContent = document.createElement("a");
+  const skipToMainContent = document.createElement("nav");
+  skipToMainContent.innerHTML = `
+  <div class="skip-to-main-content" aria-label="Skip to main content">
+    <div class="skip-to-main-content-header">
+      <h2>Skip to</h2>
+      <a href="#${targetId}">Main Content</a>
+    </div>
+    <div class="skip-to-main-content-body">
+      <h2>Keyboard Shortcuts</h2>
+      <ul>
+        <li>
+          <a href="#">
+            <div>
+              <span>Search</span>
+              <div>
+                <span class="keynav-key">Command</span>
+                <span>+</span>
+                <span class="keynav-key">K</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div>
+              <span>Open Modal</span>
+              <div>
+                <span class="keynav-key">Shift</span>
+                <span>+</span>
+                <span class="keynav-key">Alt</span>
+                <span>+</span>
+                <span class="keynav-key">Z</span>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  `
   skipToMainContent.id = KEYNAV_SKIP_ID;
-  skipToMainContent.href = `#${targetId}`;
-  skipToMainContent.textContent = "Skip to Main Content";
-  skipToMainContent.style.cssText = `
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-200%);
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-    padding: 12px 24px;
-    font-size: 20px;
-    font-weight: bold;
-    z-index: 9999;
-    text-decoration: none;
-    border: 2px solid white;
-    border-radius: 0 0 8px 0;
-    outline: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease-in-out;
+
+  const skipStyle = document.createElement('style');
+  skipStyle.id = KEYNAV_SKIP_STYLE_ID;
+  skipStyle.textContent = `
+    #${KEYNAV_SKIP_ID} {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999999;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transform: translateY(-200%);
+      background-color: rgba(240, 240, 240, 0.98);
+      color: #111;
+      padding: 16px 24px;
+      font-size: 20px;
+      border: 2px solid white;
+      border-radius: 0 0 12px 0;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #${KEYNAV_SKIP_ID}:focus-within .skip-to-main-content, #${KEYNAV_SKIP_ID} .skip-to-main-content.active {
+      transform: translateY(0);
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-header h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      color: #111;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-header a {
+      font-size: 12px;
+      font-weight: bold;
+      color: #2563eb;
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      outline: none;
+      transition: all 0.15s ease;
+    }
+    
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-header a:hover {
+      background-color: rgba(37, 99, 235, 0.1);
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-header a:focus-visible {
+      border-color: #2563eb;
+      background-color: rgba(37, 99, 235, 0.1);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border-top: 1px solid #d1d5db;
+      padding-top: 16px;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      color: #4b5563;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body li {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body li > div {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body li span {
+      font-size: 15px;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body li div div {
+      display: flex;
+      gap: 6px;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body span.keynav-key {
+      font-size: 13px;
+      font-weight: 700;
+      background-color: #ffffff;
+      border: 1px solid #d1d5db;
+      border-bottom: 2px solid #9ca3af;
+      border-radius: 6px;
+      padding: 4px 8px;
+      color: #111;
+      text-transform: capitalize;
+    }
   `;
 
-  skipToMainContent.addEventListener('focus', () => {
-    skipToMainContent.style.transform = 'translateY(0)';
-  });
-
-  skipToMainContent.addEventListener('blur', () => {
-    skipToMainContent.style.transform = 'translateY(-200%)';
-  });
+  document.head.appendChild(skipStyle);
 
   skipToMainContent.addEventListener('click', (e) => {
     setTimeout(() => {
@@ -129,6 +269,21 @@ function applyKeyNavSkipToMainContent() {
   });
 
   document.body.prepend(skipToMainContent);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.shiftKey && e.altKey && e.key === 'z') {
+      const skipMenu = document.getElementById(KEYNAV_SKIP_ID);
+      if (!skipMenu) return;
+      e.preventDefault();
+
+      if (skipMenu.contains(document.activeElement)) {
+        document.activeElement.blur();
+      } else {
+        const firstLink = skipMenu.querySelector('a');
+        if (firstLink) firstLink.focus();
+      }
+    }
+  });
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -146,7 +301,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 
   if (message.action === 'applyKeyNav') {
-    removeKeyNav(); // Clear before applying new features
+    removeKeyNav();
 
     if (message.types && message.types.includes('focus')) {
       applyKeyNavFocus();
