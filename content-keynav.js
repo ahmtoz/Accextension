@@ -151,8 +151,8 @@ function applyKeyNavSkipToMainContent() {
       flex-direction: column;
       gap: 1rem;
       transform: translateY(-200%);
-      background-color: rgba(240, 240, 240, 0.98);
-      color: #111;
+      background-color: rgba(255, 255, 255);
+      color: #333;
       padding: 16px 24px;
       font-size: 20px;
       border: 2px solid white;
@@ -175,7 +175,7 @@ function applyKeyNavSkipToMainContent() {
       font-size: 16px;
       font-weight: 600;
       margin: 0;
-      color: #111;
+      color: #333;
     }
 
     #${KEYNAV_SKIP_ID} .skip-to-main-content-header a {
@@ -212,13 +212,13 @@ function applyKeyNavSkipToMainContent() {
       font-size: 16px;
       font-weight: 600;
       margin: 0;
-      color: #4b5563;
+      color: #333;
     }
 
     #${KEYNAV_SKIP_ID} .skip-to-main-content-body ul {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 16px;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -229,25 +229,26 @@ function applyKeyNavSkipToMainContent() {
       flex-direction: column;
     }
 
-    #${KEYNAV_SKIP_ID} .skip-to-main-content-body li > div {
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body li div:first-child {
       display: flex;
       justify-content: space-between;
       gap: 32px;
     }
 
     #${KEYNAV_SKIP_ID} .skip-to-main-content-body li span {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
-      color: #374151;
+      color: #000;
     }
 
     #${KEYNAV_SKIP_ID} .skip-to-main-content-body li div div {
       display: flex;
+      align-items: center;
       gap: 6px;
     }
 
     #${KEYNAV_SKIP_ID} .skip-to-main-content-body span.keynav-key {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       background-color: #ffffff;
       border: 1px solid #d1d5db;
@@ -268,10 +269,30 @@ function applyKeyNavSkipToMainContent() {
     }, 10);
   });
 
+  skipToMainContent.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      const links = Array.from(skipToMainContent.querySelectorAll('a'));
+      const activeIndex = links.indexOf(document.activeElement);
+
+      if (activeIndex !== -1) {
+        e.preventDefault();
+        let nextIndex;
+
+        if (e.key === 'ArrowDown') {
+          nextIndex = (activeIndex + 1) % links.length;
+        } else {
+          nextIndex = (activeIndex - 1 + links.length) % links.length;
+        }
+
+        links[nextIndex].focus();
+      }
+    }
+  });
+
   document.body.prepend(skipToMainContent);
 
   document.addEventListener('keydown', (e) => {
-    if (e.shiftKey && e.altKey && e.key === 'z') {
+    if (e.shiftKey && e.altKey && e.key.toLowerCase() === 'z') {
       const skipMenu = document.getElementById(KEYNAV_SKIP_ID);
       if (!skipMenu) return;
       e.preventDefault();
