@@ -94,6 +94,44 @@ function applyKeyNavSkipToMainContent() {
     targetElement.style.outline = 'none';
   }
 
+  function findSearchElement() {
+    const search = document.querySelector('input[type="search"]');
+    if (search && search.offsetHeight > 0) return search;
+
+    const searchInput = document.querySelector('input[type="text"]');
+    if (searchInput && searchInput.offsetHeight > 0) return searchInput;
+
+    const ariaLabelSearch = document.querySelector('[aria-label="Search"]');
+    if (ariaLabelSearch && ariaLabelSearch.offsetHeight > 0) return ariaLabelSearch;
+
+    const ariaLabelledbySearch = document.querySelector('[aria-labelledby="search"]');
+    if (ariaLabelledbySearch && ariaLabelledbySearch.offsetHeight > 0) return ariaLabelledbySearch;
+
+    const placeholderSearch = document.querySelector('[placeholder="Search"]');
+    if (placeholderSearch && placeholderSearch.offsetHeight > 0) return placeholderSearch;
+
+    const roleSearch = document.querySelector('[role="search"]');
+    if (roleSearch && roleSearch.offsetHeight > 0) return roleSearch;
+
+    const idSearch = document.querySelector('#search-content, #search, #search-input');
+    if (idSearch && idSearch.offsetHeight > 0) return idSearch;
+
+    return document.body;
+  }
+
+  const searchElement = findSearchElement();
+  let searchId = searchElement.id;
+
+  if (!searchId) {
+    searchId = 'accextension-search-target';
+    searchElement.id = searchId;
+  }
+
+  if (!searchElement.hasAttribute('tabindex')) {
+    searchElement.setAttribute('tabindex', '-1');
+    searchElement.style.outline = 'none';
+  }
+
   const skipToMainContent = document.createElement("nav");
   skipToMainContent.innerHTML = `
   <div class="skip-to-main-content" aria-label="Skip to main content">
@@ -105,7 +143,7 @@ function applyKeyNavSkipToMainContent() {
       <h2>Keyboard Shortcuts</h2>
       <ul>
         <li>
-          <a href="#">
+          <a href="#${searchId}">
             <div>
               <span>Search</span>
               <div>
@@ -303,6 +341,15 @@ function applyKeyNavSkipToMainContent() {
         const firstLink = skipMenu.querySelector('a');
         if (firstLink) firstLink.focus();
       }
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.altKey && e.key.toLowerCase() === 'k') || (e.metaKey && e.key.toLowerCase() === 'k')) {
+      if (!searchElement) return;
+      e.preventDefault();
+
+      searchElement.focus();
     }
   });
 }
