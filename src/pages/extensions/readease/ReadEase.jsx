@@ -12,7 +12,7 @@ const COLORS = [
 
 const EFFECT_OPTIONS = [
   { key: 'blur', label: 'Blur only' },
-  { key: 'dim',  label: 'Dim only'  },
+  { key: 'dim',  label: 'Dım only'  },
   { key: 'both', label: 'Both'      },
 ];
 

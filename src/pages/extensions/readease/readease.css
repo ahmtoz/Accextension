@@ -1,164 +1,81 @@
-:root {
-  --bg: #0f0f11;
-  --surface: #18181c;
-  --surface-2: #222228;
-  --border: rgba(255, 255, 255, 0.07);
-  --border-hi: rgba(255, 255, 255, 0.15);
-  --text: #e8e8ef;
-  --text-muted: #6b6b7e;
-  --accent: #FBB724;
-  --accent-dim: rgba(251, 183, 36, 0.15);
-  --radius: 10px;
-  --radius-sm: 6px;
-  --font: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'DM Mono', monospace;
-  --toggle-w: 40px;
-  --toggle-h: 22px;
-}
+/* ========================================
+   READEASE – NEW DESIGN
+   ======================================== */
 
-/* ── Popup shell ─────────────────────────────────────────────────────────── */
 .re-popup {
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  gap: 4px;
-  min-height: 0;
+  gap: 0;
 }
 
-/* ── Header ──────────────────────────────────────────────────────────────── */
 .re-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 8px;
+  display: none; /* Başlık üstte zaten var, gizliyoruz */
 }
 
-.re-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-
-.re-logo svg {
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-/* ── Toggle switch ───────────────────────────────────────────────────────── */
-.re-toggle {
-  position: relative;
-  width: var(--toggle-w);
-  height: var(--toggle-h);
-  border: none;
-  border-radius: 999px;
-  background: var(--surface-2);
-  cursor: pointer;
-  transition: background 0.25s ease;
-  flex-shrink: 0;
-  outline: none;
-}
-
-.re-toggle--on {
-  background: var(--accent);
-}
-
-.re-toggle-knob {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: calc(var(--toggle-h) - 6px);
-  height: calc(var(--toggle-h) - 6px);
-  border-radius: 50%;
-  background: #fff;
-  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.re-toggle--on .re-toggle-knob {
-  transform: translateX(calc(var(--toggle-w) - var(--toggle-h)));
-}
-
-/* ── Body (controls) ─────────────────────────────────────────────────────── */
 .re-body {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  transition: opacity 0.2s ease;
+  gap: 1rem;
 }
 
-.re-body--disabled {
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-/* ── Section ─────────────────────────────────────────────────────────────── */
 .re-section {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .re-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #000;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
+  align-items: center;
 }
 
 .re-value {
-  font-family: var(--font-mono);
-  font-size: 11px;
   font-weight: 500;
-  color: var(--accent);
-  letter-spacing: 0;
-  text-transform: none;
+  color: #000;
 }
 
-/* ── Color swatches ──────────────────────────────────────────────────────── */
+/* ========================================
+   RULER COLORS – Yeni Tasarım
+   ======================================== */
 .re-colors {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .re-color-swatch {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: var(--swatch);
-  border: 2px solid transparent;
+  border: 1px solid black;
+  background-color: var(--swatch);
   cursor: pointer;
-  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
-  outline: none;
+  transition: all 0.2s ease;
+  position: relative;
+  padding: 0;
 }
 
 .re-color-swatch:hover {
-  transform: scale(1.12);
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .re-color-swatch--active {
-  border-color: var(--swatch);
-  box-shadow:
-    0 0 0 3px var(--bg),
-    0 0 0 5px var(--swatch);
-  transform: scale(1.08);
+  border-color: #000 !important;
+  border-width: 3px;
+  transform: scale(1.05);
 }
 
-/* ── Effect radio pills ──────────────────────────────────────────────────── */
+/* ========================================
+   OVERLAY EFFECT – Yeni Buton Stili
+   ======================================== */
 .re-effect-group {
   display: flex;
-  gap: 6px;
+  gap: 0.5rem;
 }
 
 .re-radio-pill {
@@ -166,94 +83,111 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 6px;
-  border-radius: var(--radius-sm);
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  font-size: 11.5px;
-  font-weight: 500;
-  color: var(--text-muted);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-  white-space: nowrap;
-  text-align: center;
+  transition: all 0.2s ease;
+  background-color: #aaaaaa;
+  color: #fff;
   user-select: none;
 }
 
-.re-radio-pill input[type="radio"] {
+.re-radio-pill input {
   display: none;
 }
 
 .re-radio-pill--active {
-  background: var(--accent-dim);
-  border-color: var(--accent);
-  color: var(--accent);
+  border: 1px solid black;
+  background-color: #FFF;
+  color: #000;
 }
 
-.re-radio-pill:hover:not(.re-radio-pill--active) {
-  background: var(--surface);
-  border-color: var(--border-hi);
-  color: var(--text);
-}
-
-/* ── Range slider ────────────────────────────────────────────────────────── */
+/* ========================================
+   SLIDERS – Yeni Tasarım
+   ======================================== */
 .re-slider {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 4px;
-  border-radius: 999px;
-  background: var(--surface-2);
+  height: 6px;
+  border-radius: 3px;
+  background: #E5E7EB;
   outline: none;
   cursor: pointer;
-  position: relative;
 }
 
+/* Slider Track */
+.re-slider::-webkit-slider-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #E5E7EB;
+}
+
+.re-slider::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #E5E7EB;
+}
+
+/* Slider Thumb */
 .re-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: var(--accent);
-  border: 2px solid var(--bg);
-  box-shadow: 0 0 0 2px var(--accent);
-  cursor: grab;
-  transition: box-shadow 0.15s ease, transform 0.1s ease;
-}
-
-.re-slider::-webkit-slider-thumb:active {
-  cursor: grabbing;
-  transform: scale(1.15);
+  background: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid #000;
 }
 
 .re-slider::-moz-range-thumb {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: var(--accent);
-  border: 2px solid var(--bg);
-  box-shadow: 0 0 0 2px var(--accent);
-  cursor: grab;
+  background: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid #000;
 }
 
-.re-slider-hints {
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  color: var(--text-muted);
-  padding: 0 2px;
+.re-slider:hover::-webkit-slider-thumb {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* ── Hint text ───────────────────────────────────────────────────────────── */
-.re-hint {
-  margin-top: 10px;
-  padding: 8px 10px;
-  border-radius: var(--radius-sm);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  font-size: 11px;
-  color: var(--text-muted);
-  line-height: 1.5;
-  text-align: center;
+.re-slider:hover::-moz-range-thumb {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   REMOVE RULER BUTTON
+   ======================================== */
+.re-apply-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 2px solid #E5E7EB;
+  background-color: #FFF;
+  color: #000;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.re-apply-btn:hover {
+  background-color: #F9FAFB;
+  border-color: #000;
+}
+
+.re-apply-btn:active {
+  transform: scale(0.98);
 }
