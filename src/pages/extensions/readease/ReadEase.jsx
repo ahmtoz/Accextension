@@ -18,11 +18,14 @@ const EFFECT_OPTIONS = [
 
 function ReadEase() {
   const [color,       setColor]       = useState();
-  const [rulerHeight, setRulerHeight] = useState(80);
-  const [blurAmount,  setBlurAmount]  = useState(4);
-  const [dimAmount,   setDimAmount]   = useState(0.5);
+  const [rulerHeight, setRulerHeight] = useState(94);
+  const [blurAmount,  setBlurAmount]  = useState(6);
+  const [dimAmount,   setDimAmount]   = useState(0.32);
   const [effectType,  setEffectType]  = useState('both');
-    const [isActive,    setIsActive]    = useState(false); 
+  const [isActive,    setIsActive]    = useState(false); 
+  const getPercent = (value, min, max) => {
+  return ((value - min) / (max - min)) * 100;
+};
 
   const currentSettings = useCallback(() => ({
     color, rulerHeight, blurAmount, dimAmount, effectType
@@ -78,15 +81,12 @@ function ReadEase() {
 
   return (
     <div className="re-popup">
-      <header className="re-header">
-        <div className="re-logo">ReadEase</div>
-      </header>
 
       <div className="re-body">
 
         {/* Ruler Color */}
-        <section className="re-section">
-          <label className="re-label">Ruler Color</label>
+        <section className="re-section-color">
+          <label className="re-label-color">Ruler Colors</label>
           <div className="re-colors">
             {COLORS.map(c => (
               <button
@@ -102,8 +102,8 @@ function ReadEase() {
         </section>
 
         {/* Effect Type */}
-        <section className="re-section">
-          <label className="re-label">Overlay Effect</label>
+        <section className="re-section-effect">
+          <label className="re-label-effect">Overlay Effect</label>
           <div className="re-effect-group">
             {EFFECT_OPTIONS.map(o => (
               <label key={o.key} className={`re-radio-pill ${effectType === o.key ? 're-radio-pill--active' : ''}`}>
@@ -118,11 +118,11 @@ function ReadEase() {
               </label>
             ))}
           </div>
-        </section>
+        
 
         {/* Ruler Height */}
-        <section className="re-section">
-          <label className="re-label">Ruler Height <span className="re-value">{rulerHeight}px</span></label>
+        <section className="re-section-all">
+          <label className="re-label-all">Ruler Height <span className="re-value">{rulerHeight}px</span></label>
           <input
             type="range"
             className="re-slider"
@@ -130,13 +130,16 @@ function ReadEase() {
             max="200"
             value={rulerHeight}
             onChange={e => onHeight(Number(e.target.value))}
+            style={{
+            background: `linear-gradient(to right, #000 ${getPercent(rulerHeight, 30, 200)}%, #E5E7EB ${getPercent(rulerHeight, 30, 200)}%)`
+            }}
           />
         </section>
 
         {/* Blur */}
         {effectType !== 'dim' && (
-          <section className="re-section">
-            <label className="re-label">Blur Intensity <span className="re-value">{blurAmount}px</span></label>
+          <section className="re-section-all">
+            <label className="re-label-all">Blur Intensity <span className="re-value">{blurAmount}px</span></label>
             <input
               type="range"
               className="re-slider"
@@ -144,14 +147,17 @@ function ReadEase() {
               max="16"
               value={blurAmount}
               onChange={e => onBlur(Number(e.target.value))}
+              style={{
+              background: `linear-gradient(to right, #000 ${(blurAmount/16)*100}%, #E5E7EB ${(blurAmount/16)*100}%)`
+              }}
             />
           </section>
         )}
 
         {/* Dim */}
         {effectType !== 'blur' && (
-          <section className="re-section">
-            <label className="re-label">Dim Intensity <span className="re-value">{Math.round(dimAmount*100)}%</span></label>
+          <section className="re-section-all">
+            <label className="re-label-all">Dim Intensity <span className="re-value">{Math.round(dimAmount*100)}%</span></label>
             <input
               type="range"
               className="re-slider"
@@ -160,13 +166,17 @@ function ReadEase() {
               step="0.01"
               value={dimAmount}
               onChange={e => onDim(Number(e.target.value))}
+              style={{
+              background: `linear-gradient(to right, #000 ${getPercent(dimAmount, 0, 0.85)}%, #E5E7EB ${getPercent(dimAmount, 0, 0.85)}%)`
+              }}
             />
           </section>
         )}
+        </section>
 
           <section className="re-section">
             <button className="re-apply-btn" onClick={handleRemove}>
-              Remove Ruler
+              <span className='button-text'>Remove Ruler</span>
             </button>
           </section>
 
