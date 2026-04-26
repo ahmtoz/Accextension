@@ -14,12 +14,13 @@ function removeRuler() {
 
 function getRulerColor(colorKey) {
   const colors = {
-    amber:  { ruler: 'rgba(251,191,36,0.18)',  overlay: 'rgb(251,191,36)' },
-    sky:    { ruler: 'rgba(56,189,248,0.18)',  overlay: 'rgb(56,189,248)' },
-    rose:   { ruler: 'rgba(251,113,133,0.18)', overlay: 'rgb(251,113,133)' },
-    lime:   { ruler: 'rgba(163,230,53,0.18)',  overlay: 'rgb(163,230,53)' },
-    violet: { ruler: 'rgba(167,139,250,0.18)', overlay: 'rgb(167,139,250)' },
-    white:  { ruler: 'rgba(255,255,255,0.12)', overlay: 'rgb(255,255,255)' },
+    amber:  { ruler: 'rgba(255,206,101,0.18)',  overlay: 'rgb(255,206,101)' },
+    lime:   { ruler: 'rgba(85,213,63,0.18)',    overlay: 'rgb(85,213,63)' },
+    sky:    { ruler: 'rgba(6,182,212,0.18)',    overlay: 'rgb(6,182,212)' },
+    violet: { ruler: 'rgba(139,92,246,0.18)',   overlay: 'rgb(139,92,246)' },
+    rose:   { ruler: 'rgba(239,68,68,0.18)',    overlay: 'rgb(239,68,68)' },
+    white:  { ruler: 'rgba(255,255,255,0.12)',  overlay: 'rgb(255,255,255)' },
+    black:  { ruler: 'rgba(0,0,0,0.18)',        overlay: 'rgb(0,0,0)' },
   };
   return colors[colorKey] || colors.amber;
 }
@@ -112,7 +113,7 @@ function applyRuler(settings) {
       justify-content: center;
       z-index: 10;
       isolate:isolate;
-      filter: none !important!;
+      filter: none !important;
     }
 
     .re-ruler::after {
