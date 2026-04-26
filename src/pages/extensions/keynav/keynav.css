@@ -2,3 +2,14 @@
     display: flex;
     flex-direction: column;
 }
+
+.keynav-content .option {
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.keynav-content .option-info span {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+}

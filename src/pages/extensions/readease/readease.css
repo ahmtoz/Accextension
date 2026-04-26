@@ -1,16 +1,4 @@
-/* ========================================
-   READEASE – NEW DESIGN
-   ======================================== */
-
-.re-popup {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.re-body {
-  width: 260px;
-  height: 300px;
+.readease-content {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -22,72 +10,43 @@
 }
 
 .re-section-color {
-  width: 260px;
-  height: 48px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .re-section-effect {
-  width: 260px;
-  height: 196px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .re-section-all {
-  width: 260px;
-  height: 40px;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 4px;
 }
 
 
 .re-label-color {
-  width: 260px;
-  height: 16px;
-  line-height: 16px;
-  letter-spacing: 0px;
-  vertical-align: middle;
-  font-family: 'Inter', sans-serif;
+  line-height: 1;
   font-size: 16px;
   font-weight: 700;
-  font-style: bold;
   color: #000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .re-label-effect {
-  width: 260px;
-  height: 16px;
-  font-family: 'Inter', sans-serif;
   font-size: 16px;
+  letter-spacing: 1;
   font-weight: 700;
-  font-style: bold;
   color: #000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .re-label-all {
-  width: 260px;
-  height: 16px;
-  font-family: 'Inter', sans-serif;
   font-size: 16px;
+  line-height: 16px;
   font-weight: 500;
-  color: #000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.re-label {
-  font-size: 0.875rem;
-  font-weight: 700;
   color: #000;
   display: flex;
   justify-content: space-between;
@@ -95,22 +54,14 @@
 }
 
 .re-value {
-  width: 38px;
-  height: 16px;
   font-size: 14px;
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
   color: #000;
   justify-content: flex-end;
   text-align: right;
 }
 
-/* ========================================
-   RULER COLORS – Yeni Tasarım
-   ======================================== */
 .re-colors {
-  width: 260px;
-  height: 24px;
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -135,36 +86,30 @@
 }
 
 .re-color-swatch--active {
-  border-color: #000 !important;
-  border-width: 3px;
-  transform: scale(1.05);
+  border: 1px solid #000;
+  transform: scale(1.1);
 }
 
-/* ========================================
-   OVERLAY EFFECT – Yeni Buton Stili
-   ======================================== */
 .re-effect-group {
-  width: 260px;
-  height: 28px;
   display: flex;
   justify-content: space-between;
   gap: 8px;
+  padding-block: 2px;
 }
 
 .re-radio-pill {
   gap: 8px;
-  width: 80px;
   height: 24px;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 8px 4px 8px;
+  padding: 4px 8px;
   border-radius: 4px;
+  border: 1px solid transparent;
   font-size: 10px;
+  line-height: 16px;
   font-weight: 700;
-  font-style: bold;
-  font-family: 'Inter', sans-serif;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -173,38 +118,37 @@
   user-select: none;
 }
 
+.re-radio-pill:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
 .re-radio-pill input {
   display: none;
 }
 
 .re-radio-pill--active {
-  border: 1px solid black;
-  background-color: #FFF;
+  border: 1px solid #000;
+  background-color: #FFFCE7;
   color: #000;
 }
 
-/* ========================================
-   SLIDERS – Yeni Tasarım
-   ======================================== */
 .re-slider {
   -webkit-appearance: none;
   appearance: none;
   width: 260px;
-  height: 6px;
+  height: 5px;
   border-radius: 3px;
-  background: #E5E7EB;
-  outline: none;
+  background: #EAEAEA;
   cursor: pointer;
 }
 
-/* Slider Track */
 .re-slider::-webkit-slider-track {
   width: 258px;
   height: 0px;
   border: 5px solid #EAEAEA;
 }
 
-/* Slider Thumb */
 .re-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -217,25 +161,24 @@
   border: 2px solid #000;
 }
 
-/* ========================================
-   REMOVE RULER BUTTON
-   ======================================== */
-.re-apply-btn {
-  width: 260px;
-  height: 32px;
-  padding: 4px 8px 4px 8px;
+.re-remove-btn {
+  padding: 8px;
+  margin-top: 4px;
   border-radius: 4px;
   border: 0.5px solid #33333380;
-  background-color: #FFF;
+  background-color: #fff;
   color: #000;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
 }
 
-.button-text {
-  width: 244px;
-  height: 16px;
-  font-size: 14px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
+.re-remove-btn:hover {
+  background-color: #FFFCE7;
+}
+
+.re-remove-btn:active {
+  background-color: #FFFCE7;
 }

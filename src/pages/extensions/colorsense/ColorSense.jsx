@@ -98,6 +98,7 @@ function ColorSense() {
                 if (chrome.runtime.lastError) {
                     console.error('Error:', chrome.runtime.lastError);
                 } else {
+                    setSelectedType(null);
                     console.log('Styles removed successfully');
                 }
             });

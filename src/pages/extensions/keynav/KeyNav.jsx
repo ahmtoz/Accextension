@@ -101,21 +101,6 @@ function KeyNav() {
         <div className="keynav-content">
             <div className='popup-options'>
                 <div className="option">
-                    <div className="option-info">
-                        <span>Global Focus Indicator</span>
-                    </div>
-                    <input
-                        type="checkbox"
-                        checked={activeFeatures.focus}
-                        onChange={(e) => {
-                            setActiveFeatures(prev => ({ ...prev, focus: e.target.checked }));
-                        }}
-                    />
-                </div>
-                <div className="option">
-                    <div className="option-info">
-                        <span>Skip to Main Content</span>
-                    </div>
                     <input
                         type="checkbox"
                         checked={activeFeatures.skipToMainContent}
@@ -123,6 +108,21 @@ function KeyNav() {
                             setActiveFeatures(prev => ({ ...prev, skipToMainContent: e.target.checked }));
                         }}
                     />
+                    <div className="option-info">
+                        <span>Skip to main content component</span>
+                    </div>
+                </div>
+                <div className="option">
+                    <input
+                        type="checkbox"
+                        checked={activeFeatures.focus}
+                        onChange={(e) => {
+                            setActiveFeatures(prev => ({ ...prev, focus: e.target.checked }));
+                        }}
+                    />
+                    <div className="option-info">
+                        <span>Add keyboard focus</span>
+                    </div>
                 </div>
             </div>
             <div className="popup-buttons">
