@@ -28,6 +28,7 @@
     letter-spacing: 9.6%;
     text-align: center;
     color: #333;
+    max-width: 1056px;
 }
 
 .info-items-container {

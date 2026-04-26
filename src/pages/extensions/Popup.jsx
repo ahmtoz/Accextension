@@ -16,21 +16,21 @@ function Popup() {
           className={`menu-btn ${activeTab === 'colorsense' ? 'active' : ''}`}
           onClick={() => setActiveTab('colorsense')}
         >
-          <img src="/images/extension-tab-colorsense.svg" alt="ColorSense" />
+          <img src={`/images/extension-tab-colorsense${activeTab === 'colorsense' ? '-selected.svg' : '.svg'}`} alt="ColorSense" />
           <span>ColorSense</span>
         </button>
         <button
           className={`menu-btn ${activeTab === 'readease' ? 'active' : ''}`}
           onClick={() => setActiveTab('readease')}
         >
-          <img src="/images/extension-tab-readease.svg" alt="ReadEase" />
+          <img src={`/images/extension-tab-readease${activeTab === 'readease' ? '-selected.svg' : '.svg'}`} alt="ReadEase" />
           <span>ReadEase</span>
         </button>
         <button
           className={`menu-btn ${activeTab === 'keynav' ? 'active' : ''}`}
           onClick={() => setActiveTab('keynav')}
         >
-          <img src="/images/extension-tab-keynav.svg" alt="KeyNav" />
+          <img src={`/images/extension-tab-keynav${activeTab === 'keynav' ? '-selected.svg' : '.svg'}`} alt="KeyNav" />
           <span>KeyNav</span>
         </button>
       </div>

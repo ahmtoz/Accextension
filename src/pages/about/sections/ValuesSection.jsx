@@ -1,7 +1,7 @@
 import "../styles/valuesSection.css";
-import ValueOne from "../../../assets/images/value1.png";
-import ValueTwo from "../../../assets/images/value2.png";
-import ValueThree from "../../../assets/images/value3.png";
+import ValueOne from "../../../assets/images/value1.svg";
+import ValueTwo from "../../../assets/images/value2.svg";
+import ValueThree from "../../../assets/images/value3.svg";
 
 function ValuesSection() {
     return (
@@ -39,7 +39,7 @@ function ValuesSection() {
                 <p>
                     That’s all about us.
                     <br />
-                    Feel free to say hi! 
+                    Feel free to say hi!
                 </p>
             </div>
         </section>

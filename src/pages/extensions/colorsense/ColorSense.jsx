@@ -111,7 +111,7 @@ function ColorSense() {
             <div className='popup-options'>
                 <div className="option">
                     <div className="option-info">
-                        <img src="/images/colorsene-option-protanopia.svg" alt="Protanopia" />
+                        <img src="/images/colorsense-option-protanopia.svg" alt="Protanopia" />
                         <span>Protanopia</span>
                     </div>
                     <input
