@@ -1,7 +1,7 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 4,
   "name": "Accextension",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Accessibility extension for everyone",
   "icons": {
     "16": "images/icon16.png",
@@ -24,8 +24,14 @@
   ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content-colorsense.js", "content-readease.js", "content-keynav.js"],
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content-colorsense.js",
+        "content-readease.js",
+        "content-keynav.js"
+      ],
       "run_at": "document_end"
     }
   ],
