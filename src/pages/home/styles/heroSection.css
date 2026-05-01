@@ -20,24 +20,24 @@
 .hero-information h4 {
     font-weight: 600;
     font-size: 1rem;
-    letter-spacing: 6.86%;
-    color: #333333;
+    letter-spacing: 0.5808px;
+    color: var(--clr-text-secondary);
 }
 
 .hero-information h1 {
     font-weight: 800;
     font-size: 3rem;
     line-height: 60px;
-    letter-spacing: 2.64%;
-    color: #333;
+    letter-spacing: 1.7952px;
+    color: var(--clr-text-secondary);
 }
 
 .hero-information p {
     font-weight: 500;
     font-size: 1rem;
     line-height: 30px;
-    letter-spacing: 9.6%;
-    color: #333;
+    letter-spacing: 1.92px;
+    color: var(--clr-text-secondary);
 }
 
 .cta-buttons {
@@ -57,12 +57,12 @@
     font-weight: 600;
     font-size: 1rem;
     line-height: 30px;
-    letter-spacing: 9.6%;
+    letter-spacing: 1.92px;
     cursor: pointer;
     width: fit-content;
     padding: 0.75rem 1.25rem;
     border-radius: 0.5rem;
-    border: 2px solid #000;
+    border: 2px solid var(--clr-black);
     transition: background-color 0.2s ease;
 }
 
@@ -72,21 +72,21 @@
 }
 
 .get-started-btn {
-    background-color: rgba(255, 221, 80, 1);
-    color: #000;
+    background-color: var(--clr-primary);
+    color: var(--clr-black);
 }
 
 .get-started-btn:hover {
-    background-color: rgba(255, 240, 144, 1);
+    background-color: var(--clr-primary-hover);
 }
 
 .video-btn {
-    background-color: rgba(250, 250, 250, 1);
-    color: #000;
+    background-color: var(--clr-bg);
+    color: var(--clr-black);
 }
 
 .video-btn:hover {
-    background-color: rgba(255, 252, 231, 1);
+    background-color: var(--clr-bg-alt);
 }
 
 .hero-image {
@@ -167,7 +167,6 @@
 
     .hero-information h4 {
         font-size: 1.25rem;
-        color: #333;
     }
 
     .hero-information p {
@@ -185,13 +184,7 @@
         font-size: 1rem;
         line-height: 1.5;
         padding: 0.875rem .75rem;
-        border-radius: 0.5rem;
-        border: 2px solid #000;
-    }
 
-    .get-started-btn {
-        background-color: #FFDD50;
-        color: #000;
     }
 
     .hero-image img {

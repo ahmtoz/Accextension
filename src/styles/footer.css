@@ -1,6 +1,6 @@
 footer {
-    background-color: #ffdd50;
-    color: #000;
+    background-color: var(--clr-primary);
+    color: var(--clr-black);
     padding: 3rem 6rem 1rem 6rem;
 }
 
@@ -16,11 +16,11 @@ footer {
 
 .footer-container ul li {
     padding: .5rem .5rem .5rem .25rem;
-    list-style-type: disc;
+    list-style-type: circle;
     font-weight: 500;
     font-size: 1.25rem;
     line-height: 30px;
-    letter-spacing: 9.6%;
+    letter-spacing: 1.92px;
 }
 
 .mobile-wrapper {
@@ -35,8 +35,8 @@ footer {
 }
 
 .links img {
-    width: 104px;
-    height: 24px;
+    width: 166px;
+    height: auto;
 }
 
 .links p {
@@ -47,28 +47,30 @@ footer {
     margin-top: 3rem;
 }
 
-.links p, .contact-info p:nth-child(1) {
+.links p,
+.contact-info p:nth-child(1) {
     font-weight: 800;
     font-size: 1.25rem;
     line-height: 30px;
-    letter-spacing: 9.6%;
+    letter-spacing: 1.92px;
 }
 
-.contact-info p:nth-child(2), span {
+.contact-info p:nth-child(2),
+span {
     font-weight: 500;
     font-size: 1.25rem;
     line-height: 30px;
-    letter-spacing: 9.6%;
+    letter-spacing: 1.92px;
 }
 
 .copyright {
     font-weight: 500;
     font-size: 1.25rem;
     line-height: 30px;
-    letter-spacing: 9%;
+    letter-spacing: 1.92px;
     text-align: center;
     margin-top: 2rem;
-    color: #000;
+    color: var(--clr-black);
 }
 
 .contact-info {
@@ -77,7 +79,7 @@ footer {
     gap: .875rem;
 }
 
-.contact-info > div{
+.contact-info>div {
     display: flex;
     gap: .875rem;
 }
@@ -86,18 +88,12 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer-icon-container img {
+    display: block;
     width: 24px;
     height: 24px;
-}
-
-.contact-info div:nth-of-type(1) img {
-    width: 22px;
-    height: 18px;
-}
-
-.contact-info div:nth-of-type(2) img {
-    width: 18px;
-    height: 22px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -121,7 +117,7 @@ footer {
         justify-content: space-between;
         width: 100%;
     }
-    
+
     .footer-container .links {
         width: 50%;
     }
@@ -140,18 +136,18 @@ footer {
         margin-top: 2.75rem;
     }
 
-    .links p, .contact-info p:nth-child(1) {
+    .links p,
+    .contact-info p:nth-child(1) {
         font-weight: 800;
         font-size: 1rem;
         line-height: 30px;
-        letter-spacing: 9.6%;
     }
 
-    .contact-info p:nth-child(2), span {
+    .contact-info p:nth-child(2),
+    span {
         font-weight: 500;
         font-size: 1rem;
         line-height: 30px;
-        letter-spacing: 9.6%;
     }
 
     .copyright {
@@ -166,6 +162,7 @@ footer {
     footer {
         padding: 2rem 1rem 1rem 1rem;
     }
+
     .mobile-wrapper {
         flex-direction: column;
         gap: 0;

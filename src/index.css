@@ -1,5 +1,29 @@
 @import '@fontsource/inter';
 
+:root {
+  --clr-primary: #ffdd50;
+  --clr-primary-hover: #fff090;
+
+  --clr-bg: #fafafa;
+  --clr-bg-alt: #fffce7;
+  --clr-white: #ffffff;
+
+  --clr-text-main: #000000;
+  --clr-text-secondary: #333333;
+
+  --clr-black: #000000;
+
+  --clr-border: rgba(0, 0, 0, 0.1);
+  --clr-border-dark: #00000033;
+
+  --clr-accent-green: #6acf9d;
+  --clr-accent-purple: #8789d2;
+
+  --clr-purple-glow-1: rgba(151, 71, 255, 0.25);
+  --clr-purple-glow-2: rgba(151, 71, 255, 0.12);
+  --clr-purple-glow-3: rgba(151, 71, 255, 0.05);
+}
+
 *,
 *::before,
 *::after {

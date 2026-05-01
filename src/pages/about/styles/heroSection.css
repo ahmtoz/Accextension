@@ -12,12 +12,12 @@
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(7, 100px);
     gap: 2px;
-    background-color: #00000033;
-    border-top: 1px solid #00000033;
+    background-color: var(--clr-border-dark);
+    border-top: 1px solid var(--clr-border-dark);
 }
 
 .about-hero-container > div {
-    background-color: #fafafa;
+    background-color: var(--clr-bg);
 }
 
 .about-hero-container::after,
@@ -35,9 +35,9 @@
     right: -30%;
     background: radial-gradient(
         circle,
-        rgba(151, 71, 255, 0.25) 0%,
-        rgba(151, 71, 255, 0.12) 30%,
-        rgba(151, 71, 255, 0.05) 50%,
+        var(--clr-purple-glow-1) 0%,
+        var(--clr-purple-glow-2) 30%,
+        var(--clr-purple-glow-3) 50%,
         transparent 75%
     );
 }
@@ -48,9 +48,9 @@
     left: -30%;
     background: radial-gradient(
         circle,
-        rgba(151, 71, 255, 0.25) 0%,
-        rgba(151, 71, 255, 0.12) 30%,
-        rgba(151, 71, 255, 0.05) 50%,
+        var(--clr-purple-glow-1) 0%,
+        var(--clr-purple-glow-2) 30%,
+        var(--clr-purple-glow-3) 50%,
         transparent 75%
     );
 }

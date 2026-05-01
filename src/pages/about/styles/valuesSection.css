@@ -9,18 +9,16 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 100%;
-    letter-spacing: 0%;
-    color: rgba(0, 0, 0, 1);
+    color: var(--clr-text-main);
 }
 
-.values-section > p {
+.values-section>p {
     text-align: center;
     margin-top: 5rem;
     font-weight: 600;
     font-size: 32px;
     line-height: 152%;
-    letter-spacing: 0%;
-    color: rgba(0, 0, 0, 1);
+    color: var(--clr-text-main);
 }
 
 .values-list {
@@ -29,7 +27,7 @@
     margin-inline: auto;
 }
 
-.values-list ul{
+.values-list ul {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,28 +56,28 @@
 .divider {
     width: 80px;
     height: 8px;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: var(--clr-black);
 }
 
 .values-list li h3 {
     font-weight: 800;
     font-size: 24px;
     line-height: 42px;
-    letter-spacing: 6.86%;
-    color: rgba(0, 0, 0, 1);
+    letter-spacing: 1.92px;
+    color: var(--clr-text-main);
 }
 
 .values-list li p {
     font-weight: 500;
     font-size: 1rem;
     line-height: 24px;
-    letter-spacing: 9.6%;
-    color: rgba(0, 0, 0, 1);
+    letter-spacing: 1.92px;
+    color: var(--clr-text-main);
     text-align: center;
 }
 
 @media screen and (min-width: 768px) {
-    .values-list ul{
+    .values-list ul {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
@@ -98,7 +96,7 @@
         text-align: start;
     }
 
-    .values-list > p {
+    .values-list>p {
         font-size: 68px;
     }
 
@@ -106,7 +104,6 @@
         font-weight: 600;
         font-size: 60px;
         line-height: 100%;
-        letter-spacing: 0%;
         text-align: center;
     }
 
@@ -118,6 +115,6 @@
         font-weight: 500;
         font-size: 20px;
         line-height: 30px;
-        letter-spacing: 9.6%;
+        letter-spacing: 1.92px;
     }
 }
