@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/navbar.css';
 import { NavLink } from 'react-router-dom';
 import Logo from '../assets/images/logo.svg';
@@ -9,6 +9,19 @@ function Navbar () {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, [isOpen]);
 
   return (
     <nav>

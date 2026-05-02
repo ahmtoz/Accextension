@@ -24,17 +24,12 @@ export function Footer() {
                                 }}
                             >Home</a></li>
                             <li>
-                                <a
-                                    href="#"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        document
-                                            .getElementById("features-section")
-                                            ?.scrollIntoView({ behavior: "smooth" });
-                                    }}
+                                <NavLink
+                                    to="/#features-section"
+
                                 >
                                     Extension
-                                </a>
+                                </NavLink>
                             </li>
                             <li>
                                 <NavLink
