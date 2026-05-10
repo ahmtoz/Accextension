@@ -15,17 +15,20 @@ function InfoSection() {
                 <div className="info-items-container">
                     <InfoElement
                         image={Info1}
-                        altText="easoe info image one"
+                        altText="Navigate Icon"
+                        ariaHidden="true"
                         text="This tools supports users in navigating online challenges by offering clear solutions that improve daily experiences."
                     />
                     <InfoElement
                         image={Info2}
-                        altText="easoe info image two"
+                        altText="Help Icon"
+                        ariaHidden="true"
                         text="Helps people overcome accessibility barriers by simplifying the web and enhancing everyday usability greatly."
                     />
                     <InfoElement
                         image={Info3}
-                        altText="easoe info image three"
+                        altText="Accessibility Icon"
+                        ariaHidden="true"
                         text="Empowers individuals facing digital difficulties by providing guidance tools that make browsing easier everywhere."
                     />
                 </div>

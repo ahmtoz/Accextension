@@ -7,7 +7,7 @@ function InfoSection() {
             <div className="about-info-section">
                 <h2>Who are we?</h2>
                 <div className="about-info-container">
-                    <img src={AboutImage} alt="" />
+                    <img src={AboutImage} alt="About Image" aria-hidden="true" />
                     <p>Accextension is a browser-based accessibility add-on designed to support inclusive and adaptable web experiences. It provides users with tools that enable web content to be customized according to individual needs, promoting independent, comfortable, and accessible interaction with digital environments. Grounded in recognized accessibility standards, Accextension aims to contribute to a more equitable and user-centered web.</p>
                 </div>
                 <blockquote>

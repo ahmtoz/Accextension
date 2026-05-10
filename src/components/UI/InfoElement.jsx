@@ -1,7 +1,7 @@
-function InfoElement({ image, altText, text }) {
+function InfoElement({ image, altText, ariaHidden, text }) {
   return (
     <div className="info-item">
-      <img src={image} alt={altText} />
+      <img src={image} alt={altText} aria-hidden={ariaHidden} />
       <p>{text}</p>
     </div>
   );

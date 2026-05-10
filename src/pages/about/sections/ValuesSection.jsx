@@ -12,7 +12,7 @@ function ValuesSection() {
                     <ul>
                         <li>
                             <div>
-                                <img src={ValueOne} alt="Integrity Icon" />
+                                <img src={ValueOne} alt="Mission Icon" aria-hidden="true" />
                                 <div className="divider"></div>
                                 <h3>Mission</h3>
                             </div>
@@ -20,7 +20,7 @@ function ValuesSection() {
                         </li>
                         <li>
                             <div>
-                                <img src={ValueTwo} alt="Innovation Icon" />
+                                <img src={ValueTwo} alt="Vision Icon" aria-hidden="true" />
                                 <div className="divider"></div>
                                 <h3>Vision</h3>
                             </div>
@@ -28,7 +28,7 @@ function ValuesSection() {
                         </li>
                         <li>
                             <div>
-                                <img src={ValueThree} alt="Teamwork Icon" />
+                                <img src={ValueThree} alt="Values Icon" aria-hidden="true" />
                                 <div className="divider"></div>
                                 <h3>Values</h3>
                             </div>

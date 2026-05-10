@@ -16,7 +16,8 @@ function FeaturesSection() {
         <div className="features-items-container">
           <AddOnElement
             img={Feat1}
-            altText="feature section image 1"
+            altText="Colorsense Extension Icon"
+            ariaHidden="true"
             heading="Colorsense"
             text="Adjust colors for clear distinction of all webpage elements."
             btnText="Get Extension"
@@ -24,7 +25,8 @@ function FeaturesSection() {
           />
           <AddOnElement
             img={Feat2}
-            altText="feature section image 2"
+            altText="Readease Extension Icon"
+            ariaHidden="true"
             heading="Readease"
             text="Reformats text with specialized fonts and spacing for easy read. "
             btnText="Get Extension"
@@ -32,7 +34,8 @@ function FeaturesSection() {
           />
           <AddOnElement
             img={Feat3}
-            altText="feature section image 3"
+            altText="Keynav Extension Icon"
+            ariaHidden="true"
             heading="Keynav"
             text="Enable full mouse-free website navigation using only keyboard. "
             btnText="Get Extension"

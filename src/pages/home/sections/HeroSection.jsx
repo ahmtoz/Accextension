@@ -9,10 +9,10 @@ function HeroSection() {
         <section id='hero'>
             <div className="container">
                 <div className="hero-information">
-                    <h4>“Making the internet comfortable for everyone.”</h4>
+                    <h2>“Making the internet comfortable for everyone.”</h2>
                     <h1>Unlock the Web's Full Potential</h1>
-                    <div className="hero-image hero-image-mobile">
-                        <img src={heroImage} loading="eager" fetchpriority="high" alt="Hero Image" />
+                    <div className="hero-image">
+                        <img src={heroImage} aria-hidden="true" loading="eager" fetchpriority="high" alt="Illustration showing accessibility tools for web browsing" />
                     </div>
                     <p>Accextension provides add-ons for a personalized experience. Overcomes color blindness, dyslexia, ADHD with smart, seamless integration.</p>
                     <div className="cta-buttons">
@@ -29,9 +29,6 @@ function HeroSection() {
                             Watch the Video <img src={cta2} alt="" aria-hidden="true" />
                         </Link>
                     </div>
-                </div>
-                <div className="hero-image hero-image-desktop">
-                    <img src={heroImage} alt="Hero Image" />
                 </div>
             </div>
         </section>
