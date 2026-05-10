@@ -134,7 +134,7 @@ section {
     color: var(--clr-black);
 }
 
-.features-items-container button {
+.features-items-container a {
     font-weight: 500;
     font-size: 14px;
     line-height: 30px;
@@ -145,9 +145,11 @@ section {
     background-color: var(--clr-primary);
     color: var(--clr-text-main);
     transition: background-color .2s ease;
+    text-decoration: none;
+    text-align: center;
 }
 
-.features-items-container button:hover {
+.features-items-container a:hover {
     background-color: var(--clr-primary-hover);
 }
 

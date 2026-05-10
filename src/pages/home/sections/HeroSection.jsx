@@ -2,6 +2,7 @@ import '../styles/heroSection.css';
 import heroImage from '../../../assets/images/hero-image.svg';
 import cta1 from '../../../assets/images/cta1.svg';
 import cta2 from '../../../assets/images/cta2.svg';
+import { Link } from 'react-router-dom';
 
 function HeroSection() {
     return (
@@ -15,21 +16,18 @@ function HeroSection() {
                     </div>
                     <p>Accextension provides add-ons for a personalized experience. Overcomes color blindness, dyslexia, ADHD with smart, seamless integration.</p>
                     <div className="cta-buttons">
-                        <button
+                        <Link
                             className="get-started-btn"
-                            onClick={() => {
-                                document.querySelector("#features-section")
-                                    .scrollIntoView({ behavior: "smooth" })
-                            }}
-                        >Get Started Free <img src={cta1} alt="" aria-hidden="true" /></button>
-                        <button
+                            to="/#features-section"
+                        >
+                            Get Started Free <img src={cta1} alt="" aria-hidden="true" />
+                        </Link>
+                        <Link
                             className="video-btn"
-                            onClick={() => {
-                                document
-                                    .getElementById("video-section")
-                                    .scrollIntoView({ behavior: "smooth" });
-                            }}
-                        >Watch the Video <img src={cta2} alt="" aria-hidden="true" /></button>
+                            to="/#video-section"
+                        >
+                            Watch the Video <img src={cta2} alt="" aria-hidden="true" />
+                        </Link>
                     </div>
                 </div>
                 <div className="hero-image hero-image-desktop">

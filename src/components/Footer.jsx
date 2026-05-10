@@ -48,15 +48,15 @@ export function Footer() {
                         <p>Have questions or feedbacks? Reach out to us. </p>
                         <div>
                             <div className="footer-icon-container">
-                                <img src={EmailIcon} alt="Email Icon" />
+                                <img src={EmailIcon} alt="Email Icon" aria-hidden="true" />
                             </div>
                             <span><a href="mailto:accextension.offical@gmail.com">accextension.offical@gmail.com</a></span>
                         </div>
                         <div>
                             <div className="footer-icon-container">
-                                <img src={LocationIcon} alt="Location Icon" />
+                                <img src={LocationIcon} alt="Location Icon" aria-hidden="true" />
                             </div>
-                            <span>Ankara / Turkey</span>
+                            <address>Ankara / Turkey</address>
                         </div>
                     </div>
                 </div>

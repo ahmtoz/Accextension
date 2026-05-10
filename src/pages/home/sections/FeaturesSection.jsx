@@ -5,6 +5,8 @@ import Feat2 from '../../../assets/images/feat2.png';
 import Feat3 from '../../../assets/images/feat3.png';
 
 function FeaturesSection() {
+  const chromeWebStoreUrl = "https://chromewebstore.google.com/detail/accextension/pcafeehdhcnmfbbjdgfdenfkianbcbee";
+
   return (
     <section id="features-section">
       <div className="features-container">
@@ -18,9 +20,7 @@ function FeaturesSection() {
             heading="Colorsense"
             text="Adjust colors for clear distinction of all webpage elements."
             btnText="Get Extension"
-            onClick={() => {
-              window.open("https://chromewebstore.google.com/detail/accextension/pcafeehdhcnmfbbjdgfdenfkianbcbee", "_blank")
-            }}
+            href={chromeWebStoreUrl}
           />
           <AddOnElement
             img={Feat2}
@@ -28,9 +28,7 @@ function FeaturesSection() {
             heading="Readease"
             text="Reformats text with specialized fonts and spacing for easy read. "
             btnText="Get Extension"
-            onClick={() => {
-              window.open("https://chromewebstore.google.com/detail/accextension/pcafeehdhcnmfbbjdgfdenfkianbcbee", "_blank")
-            }}
+            href={chromeWebStoreUrl}
           />
           <AddOnElement
             img={Feat3}
@@ -38,9 +36,7 @@ function FeaturesSection() {
             heading="Keynav"
             text="Enable full mouse-free website navigation using only keyboard. "
             btnText="Get Extension"
-            onClick={() => {
-              window.open("https://chromewebstore.google.com/detail/accextension/pcafeehdhcnmfbbjdgfdenfkianbcbee", "_blank")
-            }}
+            href={chromeWebStoreUrl}
           />
         </div>
       </div>
