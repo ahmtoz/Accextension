@@ -129,3 +129,29 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true; // Sadece bu mesajları işlediysek true dön
   }
 });
+
+if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+  chrome.storage.local.get(['colorBlindType'], (result) => {
+    if (chrome.runtime.lastError) {
+      console.error("Error reading from chrome.storage:", chrome.runtime.lastError);
+      return;
+    }
+    if (result && result.colorBlindType) {
+      console.log('Applying stored ColorSense filter:', result.colorBlindType);
+      injectCSS(result.colorBlindType);
+    }
+  });
+
+  chrome.storage.onChanged.addListener((changes, areaName) => {
+    if (areaName === 'local' && changes.colorBlindType) {
+      const newType = changes.colorBlindType.newValue;
+      if (newType) {
+        console.log('ColorSense filter updated via storage:', newType);
+        injectCSS(newType);
+      } else {
+        console.log('ColorSense filter removed via storage');
+        removeCSS();
+      }
+    }
+  });
+}

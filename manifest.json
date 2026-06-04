@@ -20,7 +20,8 @@
   },
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "storage"
   ],
   "content_scripts": [
     {
