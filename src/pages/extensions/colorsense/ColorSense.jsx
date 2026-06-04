@@ -1,9 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './styles/colorsense.css';
 
 /* eslint-disable no-undef */
 function ColorSense() {
     const [selectedType, setSelectedType] = useState(null);
+
+    useEffect(() => {
+        if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+            chrome.storage.local.get(['colorBlindType'], (result) => {
+                if (chrome.runtime.lastError) {
+                    console.error("Error reading from storage:", chrome.runtime.lastError);
+                    return;
+                }
+                if (result && result.colorBlindType) {
+                    setSelectedType(result.colorBlindType);
+                }
+            });
+        }
+    }, []);
 
     const handleApply = async () => {
         if (!selectedType) {
@@ -12,8 +26,13 @@ function ColorSense() {
         }
 
         try {
+            if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+                await chrome.storage.local.set({ colorBlindType: selectedType });
+            }
+
             // Get the active tab
             const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+            if (!tab) return;
 
             // Check if we can inject scripts on this page
             const url = tab.url || '';
@@ -22,11 +41,10 @@ function ColorSense() {
                 url.startsWith('edge://') ||
                 url.startsWith('about:') ||
                 url.startsWith('moz-extension://')) {
-                alert('This extension cannot work on browser internal pages (chrome://, chrome-extension://, etc.).\n\nPlease open a regular website (like google.com, wikipedia.org) and try again.');
+
+                console.log('Cannot inject script on browser internal pages, but saved to storage for other tabs.');
                 return;
             }
-
-            // Check if chrome.scripting is available
             if (!chrome.scripting || !chrome.scripting.executeScript) {
                 alert('Scripting API is not available. Please make sure the extension has the "scripting" permission and reload the extension.');
                 return;
@@ -90,18 +108,27 @@ function ColorSense() {
 
     const handleRemove = async () => {
         try {
+            if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+                await chrome.storage.local.remove('colorBlindType');
+            }
+            setSelectedType(null);
             const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
-            chrome.tabs.sendMessage(tab.id, {
-                action: 'removeColorBlind'
-            }, () => {
-                if (chrome.runtime.lastError) {
-                    console.error('Error:', chrome.runtime.lastError);
-                } else {
-                    setSelectedType(null);
-                    console.log('Styles removed successfully');
+            if (tab) {
+                const url = tab.url || '';
+                if (!url.startsWith('chrome://') &&
+                    !url.startsWith('chrome-extension://') &&
+                    !url.startsWith('edge://') &&
+                    !url.startsWith('about:') &&
+                    !url.startsWith('moz-extension://')) {
+                    chrome.tabs.sendMessage(tab.id, { action: 'removeColorBlind' }, () => {
+                        if (chrome.runtime.lastError) {
+                            console.error('Error removing via message:', chrome.runtime.lastError);
+                        } else {
+                            console.log('Styles removed successfully');
+                        }
+                    });
                 }
-            });
+            }
         } catch (error) {
             console.error('Error:', error);
         }
