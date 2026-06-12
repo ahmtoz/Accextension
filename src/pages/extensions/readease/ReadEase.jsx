@@ -13,7 +13,7 @@ const COLORS = [
 
 const EFFECT_OPTIONS = [
   { key: 'blur', label: 'Blur only' },
-  { key: 'dim', label: 'Dım only' },
+  { key: 'dım', label: 'Dım only' },
   { key: 'both', label: 'Both' },
 ];
 
@@ -147,7 +147,31 @@ function ReadEase() {
         {/* Blur */}
         {effectType !== 'dim' && (
           <section className="re-section-all">
-            <label className="re-label-all">Blur Intensity <span className="re-value">{blurAmount}px</span></label>
+            <label className="re-label-all">
+              <span className="re-label-title-wrapper">
+                Blur Intensity
+                <span className="re-tooltip-container">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="re-info-icon"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 16v-4" />
+                    <path d="M12 8h.01" />
+                  </svg>
+                  <span className="re-tooltip-text">
+                    It blurs the areas outside the reading ruler, allowing you to focus only on the lines within the ruler.
+                  </span>
+                </span>
+              </span>
+              <span className="re-value">{blurAmount}px</span>
+            </label>
             <input
               type="range"
               className="re-slider"
@@ -165,7 +189,31 @@ function ReadEase() {
         {/* Dim */}
         {effectType !== 'blur' && (
           <section className="re-section-all">
-            <label className="re-label-all">Dim Intensity <span className="re-value">{Math.round(dimAmount * 100)}%</span></label>
+            <label className="re-label-all">
+              <span className="re-label-title-wrapper">
+                Dim Intensity
+                <span className="re-tooltip-container">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="re-info-icon"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 16v-4" />
+                    <path d="M12 8h.01" />
+                  </svg>
+                  <span className="re-tooltip-text">
+                    It dims the areas outside the reading ruler, reducing screen glare and eye strain.
+                  </span>
+                </span>
+              </span>
+              <span className="re-value">{Math.round(dimAmount * 100)}%</span>
+            </label>
             <input
               type="range"
               className="re-slider"

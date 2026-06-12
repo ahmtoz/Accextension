@@ -182,3 +182,72 @@
 .re-remove-btn:active {
   background-color: #FFFCE7;
 }
+
+/* Tooltip styles */
+.re-label-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.re-tooltip-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.re-info-icon {
+  width: 14px;
+  height: 14px;
+  color: #71717a;
+  cursor: help;
+  transition: color 0.2s ease;
+  display: block;
+}
+
+.re-tooltip-container:hover .re-info-icon {
+  color: #000;
+}
+
+.re-tooltip-text {
+  visibility: hidden;
+  width: 190px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(4px);
+  color: #f8fafc;
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px 10px;
+  position: absolute;
+  z-index: 100;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 400;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  white-space: normal;
+  text-transform: none;
+}
+
+.re-tooltip-container:hover .re-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.re-tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(15, 23, 42, 0.95) transparent transparent transparent;
+}

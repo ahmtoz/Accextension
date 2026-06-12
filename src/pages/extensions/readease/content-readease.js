@@ -14,13 +14,13 @@ function removeRuler() {
 
 function getRulerColor(colorKey) {
   const colors = {
-    amber:  { ruler: 'rgba(255,206,101,0.18)',  overlay: 'rgb(255,206,101)' },
-    lime:   { ruler: 'rgba(85,213,63,0.18)',    overlay: 'rgb(85,213,63)' },
-    sky:    { ruler: 'rgba(6,182,212,0.18)',    overlay: 'rgb(6,182,212)' },
-    violet: { ruler: 'rgba(139,92,246,0.18)',   overlay: 'rgb(139,92,246)' },
-    rose:   { ruler: 'rgba(239,68,68,0.18)',    overlay: 'rgb(239,68,68)' },
-    white:  { ruler: 'rgba(255,255,255,0.12)',  overlay: 'rgb(255,255,255)' },
-    black:  { ruler: 'rgba(0,0,0,0.18)',        overlay: 'rgb(0,0,0)' },
+    amber: { ruler: 'rgba(255,206,101,0.18)', overlay: 'rgb(255,206,101)' },
+    lime: { ruler: 'rgba(85,213,63,0.18)', overlay: 'rgb(85,213,63)' },
+    sky: { ruler: 'rgba(6,182,212,0.18)', overlay: 'rgb(6,182,212)' },
+    violet: { ruler: 'rgba(139,92,246,0.18)', overlay: 'rgb(139,92,246)' },
+    rose: { ruler: 'rgba(239,68,68,0.18)', overlay: 'rgb(239,68,68)' },
+    white: { ruler: 'rgba(255,255,255,0.12)', overlay: 'rgb(255,255,255)' },
+    black: { ruler: 'rgba(0,0,0,0.18)', overlay: 'rgb(0,0,0)' },
   };
   return colors[colorKey] || colors.amber;
 }
@@ -52,7 +52,7 @@ function applyRuler(settings) {
 
   const shadow = host.attachShadow({ mode: 'open' });
 
-  const blurPx   = effectType !== 'dim'  ? `${blurAmount}px` : '0px';
+  const blurPx = effectType !== 'dim' ? `${blurAmount}px` : '0px';
   const dimAlpha = effectType !== 'blur' ? dimAmount : 0;
 
   host.style.setProperty('--blur-px', blurPx);
@@ -73,7 +73,6 @@ function applyRuler(settings) {
       z-index:1;
     }
 
-    /* 🔥 ANA LAYER: blur + dim */
     .re-overlay-top {
       top: 0;
       background: rgba(0,0,0,var(--dim-alpha));
@@ -87,14 +86,13 @@ function applyRuler(settings) {
       -webkit-backdrop-filter: blur(var(--blur-px));
     }
 
-    /* 🔥 RENK LAYER (ASIL FIX) */
     .re-overlay-top::after,
     .re-overlay-bottom::after {
       content: "";
       position: absolute;
       inset: 0;
       background: var(--overlay-color);
-      opacity: 0.25; /* burayı oynayabilirsin */
+      opacity: 0.25;
       pointer-events: none;
     }
 
@@ -104,7 +102,7 @@ function applyRuler(settings) {
       width: 100%;
       pointer-events: all;
       cursor: ns-resize;
-      transition: height 0.15s ease, top 0.05s linear;
+      transition: height 0.15s ease;
       border-top: 2px solid rgba(255,255,255,0.25);
       border-bottom: 2px solid rgba(255,255,255,0.25);
       box-sizing: border-box;
@@ -127,10 +125,10 @@ function applyRuler(settings) {
   `;
   shadow.appendChild(style);
 
-  const top    = document.createElement('div');
+  const top = document.createElement('div');
   top.className = 're-overlay-top';
 
-  const ruler  = document.createElement('div');
+  const ruler = document.createElement('div');
   ruler.className = 're-ruler';
 
   const bottom = document.createElement('div');
@@ -146,10 +144,10 @@ function applyRuler(settings) {
   function layout(y, h) {
     currentY = y;
     currentH = h;
-    top.style.height    = `${y}px`;
-    ruler.style.top     = `${y}px`;
-    ruler.style.height  = `${h}px`;
-    bottom.style.top    = `${y + h}px`;
+    top.style.height = `${y}px`;
+    ruler.style.top = `${y}px`;
+    ruler.style.height = `${h}px`;
+    bottom.style.top = `${y + h}px`;
     bottom.style.height = `${window.innerHeight - y - h}px`;
   }
 
