@@ -95,73 +95,213 @@ function applyKeyNavSkipToMainContent() {
   }
 
   function findSearchElement() {
-    const search = document.querySelector('input[type="search"]');
-    if (search && search.offsetHeight > 0) return search;
+    const allInputs = Array.from(document.querySelectorAll('input, textarea, [contenteditable="true"], [role="searchbox"]'));
+    const searchKeywords = /search|query|find|ara|bul|buscar|suche|sök/i;
+    const candidates = [];
 
-    const searchInput = document.querySelector('input[type="text"]');
-    if (searchInput && searchInput.offsetHeight > 0) return searchInput;
+    for (const el of allInputs) {
+      const rect = el.getBoundingClientRect();
+      const isVisible = rect.width > 0 && rect.height > 0 &&
+        window.getComputedStyle(el).display !== 'none' &&
+        window.getComputedStyle(el).visibility !== 'hidden' &&
+        el.style.opacity !== '0';
 
-    const ariaLabelSearch = document.querySelector('[aria-label="Search"]');
-    if (ariaLabelSearch && ariaLabelSearch.offsetHeight > 0) return ariaLabelSearch;
+      if (!isVisible) continue;
+      if (el.disabled || el.readOnly || el.hasAttribute('disabled') || el.hasAttribute('readonly')) continue;
 
-    const ariaLabelledbySearch = document.querySelector('[aria-labelledby="search"]');
-    if (ariaLabelledbySearch && ariaLabelledbySearch.offsetHeight > 0) return ariaLabelledbySearch;
+      const tagName = el.tagName.toLowerCase();
 
-    const placeholderSearch = document.querySelector('[placeholder="Search"]');
-    if (placeholderSearch && placeholderSearch.offsetHeight > 0) return placeholderSearch;
+      if (tagName === 'input') {
+        const type = (el.getAttribute('type') || 'text').toLowerCase();
+        const excludedTypes = ['password', 'checkbox', 'radio', 'file', 'submit', 'button', 'reset', 'image', 'range', 'color', 'date', 'datetime-local', 'month', 'time', 'week', 'email', 'number', 'tel'];
+        if (excludedTypes.includes(type)) continue;
+      }
 
-    const roleSearch = document.querySelector('[role="search"]');
-    if (roleSearch && roleSearch.offsetHeight > 0) return roleSearch;
+      let score = 0;
 
-    const idSearch = document.querySelector('#search-content, #search, #search-input');
-    if (idSearch && idSearch.offsetHeight > 0) return idSearch;
+      const typeAttr = (el.getAttribute('type') || '').toLowerCase();
+      const roleAttr = (el.getAttribute('role') || '').toLowerCase();
+      const idAttr = (el.id || '').toLowerCase();
+      const nameAttr = (el.getAttribute('name') || '').toLowerCase();
+      const placeholderAttr = (el.getAttribute('placeholder') || '').toLowerCase();
+      const ariaLabelAttr = (el.getAttribute('aria-label') || '').toLowerCase();
+      const titleAttr = (el.getAttribute('title') || '').toLowerCase();
+      const classNameAttr = (el.getAttribute('class') || '').toLowerCase();
+
+      if (typeAttr === 'search' || roleAttr === 'searchbox') {
+        score += 100;
+      }
+
+      if (nameAttr === 'q' || nameAttr === 'query' || nameAttr === 'search' || nameAttr === 's') {
+        score += 85;
+      }
+      if (idAttr === 'search' || idAttr === 'search-input' || idAttr === 'search_input' || idAttr === 'searchbox') {
+        score += 85;
+      }
+
+      if (nameAttr && searchKeywords.test(nameAttr)) {
+        score += 55;
+      }
+      if (idAttr && searchKeywords.test(idAttr)) {
+        score += 55;
+      }
+
+      if (placeholderAttr && searchKeywords.test(placeholderAttr)) {
+        score += 75;
+      }
+      if (ariaLabelAttr && searchKeywords.test(ariaLabelAttr)) {
+        score += 75;
+      }
+      if (titleAttr && searchKeywords.test(titleAttr)) {
+        score += 70;
+      }
+
+      if (classNameAttr && searchKeywords.test(classNameAttr)) {
+        score += 45;
+      }
+
+      let labelText = '';
+      if (idAttr) {
+        const labels = document.querySelectorAll(`label[for="${el.id}"]`);
+        labels.forEach(lbl => {
+          labelText += ' ' + lbl.textContent;
+        });
+      }
+      let parent = el.parentElement;
+      while (parent) {
+        if (parent.tagName.toLowerCase() === 'label') {
+          labelText += ' ' + parent.textContent;
+          break;
+        }
+        parent = parent.parentElement;
+      }
+
+      const ariaLabelledby = el.getAttribute('aria-labelledby');
+      if (ariaLabelledby) {
+        const referencedEl = document.getElementById(ariaLabelledby);
+        if (referencedEl) {
+          labelText += ' ' + referencedEl.textContent;
+        }
+      }
+
+      if (labelText && searchKeywords.test(labelText)) {
+        score += 65;
+      }
+
+      let container = el.parentElement;
+      let depth = 0;
+      while (container && depth < 5) {
+        const containerRole = (container.getAttribute('role') || '').toLowerCase();
+        const containerId = (container.id || '').toLowerCase();
+        const containerClass = (container.getAttribute('class') || '').toLowerCase();
+        const containerTag = container.tagName.toLowerCase();
+
+        if (containerRole === 'search' || containerTag === 'search') {
+          score += 50;
+          break;
+        }
+        if (searchKeywords.test(containerId) || searchKeywords.test(containerClass)) {
+          score += 35;
+          break;
+        }
+        container = container.parentElement;
+        depth++;
+      }
+
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const absoluteTop = rect.top + scrollTop;
+
+      if (absoluteTop < 350) {
+        score += 20;
+      } else if (absoluteTop < 800) {
+        score += 5;
+      }
+
+      if (rect.width > 200) {
+        score += 10;
+      }
+
+      if (typeAttr === 'text' || tagName === 'textarea' || el.hasAttribute('contenteditable')) {
+        score += 10;
+      }
+
+      candidates.push({ element: el, score: score });
+    }
+
+    candidates.sort((a, b) => b.score - a.score);
+
+    console.log('Search field candidates and scores:', candidates.map(c => ({
+      tagName: c.element.tagName,
+      id: c.element.id,
+      name: c.element.getAttribute('name'),
+      score: c.score
+    })));
+
+    if (candidates.length > 0 && candidates[0].score >= 30) {
+      return candidates[0].element;
+    }
+
+    if (candidates.length > 0) {
+      return candidates[0].element;
+    }
 
     return document.body;
   }
 
   const searchElement = findSearchElement();
-  let searchId = searchElement.id;
+  const hasSearch = searchElement && searchElement !== document.body;
+  let searchId = '';
 
-  if (!searchId) {
-    searchId = 'accextension-search-target';
-    searchElement.id = searchId;
+  if (hasSearch) {
+    searchId = searchElement.id;
+    if (!searchId) {
+      searchId = 'accextension-search-target';
+      searchElement.id = searchId;
+    }
+
+    if (!searchElement.hasAttribute('tabindex')) {
+      searchElement.setAttribute('tabindex', '-1');
+      searchElement.style.outline = 'none';
+    }
   }
 
-  if (!searchElement.hasAttribute('tabindex')) {
-    searchElement.setAttribute('tabindex', '-1');
-    searchElement.style.outline = 'none';
-  }
+  const isMac = navigator.userAgent.toLowerCase().includes('mac');
+  const modifierLabel = isMac ? 'Option' : 'Alt';
 
-  const skipToMainContent = document.createElement("nav");
-  skipToMainContent.innerHTML = `
-  <div class="skip-to-main-content" aria-label="Skip to main content">
-    <div class="skip-to-main-content-header">
-      <h2>Skip to</h2>
-      <a href="#${targetId}">Main Content</a>
-    </div>
-    <div class="skip-to-main-content-body">
-      <h2>Keyboard Shortcuts</h2>
-      <ul>
+  const searchShortcutHTML = hasSearch ? `
         <li>
-          <a href="#${searchId}">
+          <a href="#${searchId}" tabindex="0">
             <div>
               <span>Search</span>
               <div>
-                <span class="keynav-key">Command</span>
+                <span class="keynav-key">${modifierLabel}</span>
                 <span>+</span>
                 <span class="keynav-key">K</span>
               </div>
             </div>
           </a>
         </li>
+  ` : '';
+
+  const skipToMainContent = document.createElement("nav");
+  skipToMainContent.innerHTML = `
+  <div class="skip-to-main-content" aria-label="Skip to main content">
+    <div class="skip-to-main-content-header">
+      <h2>Skip to</h2>
+      <a href="#${targetId}" tabindex="0">Main Content</a>
+    </div>
+    <div class="skip-to-main-content-body">
+      <h2>Keyboard Shortcuts</h2>
+      <ul>
+        ${searchShortcutHTML}
         <li>
-          <a href="#">
+          <a href="#" tabindex="0">
             <div>
               <span>Open Modal</span>
               <div>
                 <span class="keynav-key">Shift</span>
                 <span>+</span>
-                <span class="keynav-key">Alt</span>
+                <span class="keynav-key">${modifierLabel}</span>
                 <span>+</span>
                 <span class="keynav-key">Z</span>
               </div>
@@ -171,7 +311,7 @@ function applyKeyNavSkipToMainContent() {
       </ul>
     </div>
   </div>
-  `
+  `;
   skipToMainContent.id = KEYNAV_SKIP_ID;
 
   const skipStyle = document.createElement('style');
@@ -216,26 +356,49 @@ function applyKeyNavSkipToMainContent() {
       color: #333;
     }
 
+    #${KEYNAV_SKIP_ID} a {
+      text-decoration: none !important;
+      pointer-events: auto !important;
+      cursor: pointer !important;
+    }
+
     #${KEYNAV_SKIP_ID} .skip-to-main-content-header a {
       font-size: 12px;
       font-weight: bold;
-      color: #2563eb;
-      text-decoration: none;
+      color: #2563eb !important;
       padding: 4px 8px;
       border-radius: 6px;
       border: 2px solid transparent;
-      outline: none;
       transition: all 0.15s ease;
     }
     
     #${KEYNAV_SKIP_ID} .skip-to-main-content-header a:hover {
-      background-color: rgba(37, 99, 235, 0.1);
+      background-color: rgba(37, 99, 235, 0.1) !important;
     }
 
     #${KEYNAV_SKIP_ID} .skip-to-main-content-header a:focus-visible {
-      border-color: #2563eb;
-      background-color: rgba(37, 99, 235, 0.1);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+      border-color: #2563eb !important;
+      background-color: rgba(37, 99, 235, 0.1) !important;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3) !important;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body a {
+      color: inherit !important;
+      display: block !important;
+      padding: 8px 12px !important;
+      border-radius: 6px !important;
+      border: 2px solid transparent !important;
+      transition: all 0.15s ease !important;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body a:hover {
+      background-color: rgba(37, 99, 235, 0.05) !important;
+    }
+
+    #${KEYNAV_SKIP_ID} .skip-to-main-content-body a:focus-visible {
+      border-color: #2563eb !important;
+      background-color: rgba(37, 99, 235, 0.1) !important;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3) !important;
     }
 
     #${KEYNAV_SKIP_ID} .skip-to-main-content-body {
@@ -270,6 +433,7 @@ function applyKeyNavSkipToMainContent() {
     #${KEYNAV_SKIP_ID} .skip-to-main-content-body li div:first-child {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 32px;
     }
 
@@ -301,36 +465,54 @@ function applyKeyNavSkipToMainContent() {
   document.head.appendChild(skipStyle);
 
   skipToMainContent.addEventListener('click', (e) => {
-    setTimeout(() => {
-      targetElement.focus({ preventScroll: true });
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 10);
+    const mainContentLink = e.target.closest(`a[href="#${targetId}"]`);
+    const searchLink = hasSearch ? e.target.closest(`a[href="#${searchId}"]`) : null;
+
+    if (mainContentLink) {
+      e.preventDefault();
+      setTimeout(() => {
+        targetElement.focus({ preventScroll: true });
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 10);
+    } else if (searchLink) {
+      e.preventDefault();
+      setTimeout(() => {
+        searchElement.focus();
+      }, 10);
+    }
   });
 
   skipToMainContent.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
       const links = Array.from(skipToMainContent.querySelectorAll('a'));
       const activeIndex = links.indexOf(document.activeElement);
 
-      if (activeIndex !== -1) {
-        e.preventDefault();
-        let nextIndex;
+      if (links.length > 0) {
+        if (activeIndex !== -1) {
+          let nextIndex;
 
-        if (e.key === 'ArrowDown') {
-          nextIndex = (activeIndex + 1) % links.length;
+          if (e.key === 'ArrowDown') {
+            nextIndex = (activeIndex + 1) % links.length;
+          } else {
+            nextIndex = (activeIndex - 1 + links.length) % links.length;
+          }
+
+          links[nextIndex].focus();
         } else {
-          nextIndex = (activeIndex - 1 + links.length) % links.length;
+          links[0].focus();
         }
-
-        links[nextIndex].focus();
       }
     }
-  });
+  }, true);
 
   document.body.prepend(skipToMainContent);
 
   document.addEventListener('keydown', (e) => {
-    if (e.shiftKey && e.altKey && e.key.toLowerCase() === 'z') {
+    const isZ = e.key.toLowerCase() === 'z' || e.code === 'KeyZ';
+    if (e.shiftKey && e.altKey && !e.ctrlKey && !e.metaKey && isZ) {
       const skipMenu = document.getElementById(KEYNAV_SKIP_ID);
       if (!skipMenu) return;
       e.preventDefault();
@@ -345,8 +527,9 @@ function applyKeyNavSkipToMainContent() {
   });
 
   document.addEventListener('keydown', (e) => {
-    if ((e.altKey && e.key.toLowerCase() === 'k') || (e.metaKey && e.key.toLowerCase() === 'k')) {
-      if (!searchElement) return;
+    const isK = e.key.toLowerCase() === 'k' || e.code === 'KeyK';
+    if (e.altKey && !e.shiftKey && !e.ctrlKey && !e.metaKey && isK) {
+      if (!hasSearch || !searchElement) return;
       e.preventDefault();
 
       searchElement.focus();
@@ -388,5 +571,38 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true;
   }
 });
+
+function applyFeatures(features) {
+  removeKeyNav();
+  if (features) {
+    if (features.focus) {
+      applyKeyNavFocus();
+    }
+    if (features.skipToMainContent) {
+      applyKeyNavSkipToMainContent();
+    }
+  }
+}
+
+if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+  chrome.storage.local.get(['keyNavFeatures'], (result) => {
+    if (chrome.runtime.lastError) {
+      console.error("Error reading from chrome.storage:", chrome.runtime.lastError);
+      return;
+    }
+    if (result && result.keyNavFeatures) {
+      console.log('Applying stored KeyNav features:', result.keyNavFeatures);
+      applyFeatures(result.keyNavFeatures);
+    }
+  });
+
+  chrome.storage.onChanged.addListener((changes, areaName) => {
+    if (areaName === 'local' && changes.keyNavFeatures) {
+      const newFeatures = changes.keyNavFeatures.newValue;
+      console.log('KeyNav features updated via storage:', newFeatures);
+      applyFeatures(newFeatures);
+    }
+  });
+}
 
 console.log('KeyNav content script loaded successfully');

@@ -11,13 +11,22 @@ function KeyNav() {
     useEffect(() => {
         const fetchState = async () => {
             try {
-                const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-                if (!tab) return;
-                chrome.tabs.sendMessage(tab.id, { action: 'pingKeyNav' }, (response) => {
-                    if (!chrome.runtime.lastError && response && response.activeFeatures) {
-                        setActiveFeatures(response.activeFeatures);
-                    }
-                });
+                if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+                    chrome.storage.local.get(['keyNavFeatures'], async (result) => {
+                        if (result && result.keyNavFeatures) {
+                            setActiveFeatures(result.keyNavFeatures);
+                        } else {
+                            // Fallback to query current tab state
+                            const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+                            if (!tab) return;
+                            chrome.tabs.sendMessage(tab.id, { action: 'pingKeyNav' }, (response) => {
+                                if (!chrome.runtime.lastError && response && response.activeFeatures) {
+                                    setActiveFeatures(response.activeFeatures);
+                                }
+                            });
+                        }
+                    });
+                }
             } catch (err) {
                 console.error(err);
             }
@@ -27,6 +36,10 @@ function KeyNav() {
 
     const handleApply = async () => {
         try {
+            if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+                await chrome.storage.local.set({ keyNavFeatures: activeFeatures });
+            }
+
             const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
             const url = tab.url || '';
@@ -83,6 +96,9 @@ function KeyNav() {
 
     const handleRemove = async () => {
         try {
+            if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+                await chrome.storage.local.remove('keyNavFeatures');
+            }
             const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
             chrome.tabs.sendMessage(tab.id, { action: 'removeKeyNav' }, () => {
