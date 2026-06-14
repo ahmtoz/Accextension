@@ -251,6 +251,7 @@ function applyKeyNavSkipToMainContent() {
   const searchElement = findSearchElement();
   const hasSearch = searchElement && searchElement !== document.body;
   let searchId = '';
+  let lastFocusedElement = null;
 
   if (hasSearch) {
     searchId = searchElement.id;
@@ -263,6 +264,24 @@ function applyKeyNavSkipToMainContent() {
       searchElement.setAttribute('tabindex', '-1');
       searchElement.style.outline = 'none';
     }
+
+    searchElement.addEventListener('focus', (e) => {
+      const prev = e.relatedTarget;
+      const skipMenu = document.getElementById(KEYNAV_SKIP_ID);
+      if (prev && prev !== searchElement && (!skipMenu || !skipMenu.contains(prev))) {
+        lastFocusedElement = prev;
+      }
+    });
+
+    searchElement.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        searchElement.blur();
+        if (lastFocusedElement && document.body.contains(lastFocusedElement) && typeof lastFocusedElement.focus === 'function') {
+          lastFocusedElement.focus();
+        }
+      }
+    });
   }
 
   const isMac = navigator.userAgent.toLowerCase().includes('mac');
