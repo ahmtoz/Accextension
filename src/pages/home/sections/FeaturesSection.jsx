@@ -28,7 +28,7 @@ function FeaturesSection() {
             altText="Readease Extension Icon"
             ariaHidden="true"
             heading="Readease"
-            text="Reformats text with specialized fonts and spacing for easy read. "
+            text="Highlights text with a reading ruler and blur for easier focus."
             btnText="Get Extension"
             href={chromeWebStoreUrl}
           />
