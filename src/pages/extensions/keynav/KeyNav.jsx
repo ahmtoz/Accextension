@@ -7,6 +7,8 @@ function KeyNav() {
         focus: false,
         skipToMainContent: false
     });
+    const [applyStatus, setApplyStatus] = useState('Apply');
+    const [removeStatus, setRemoveStatus] = useState('Remove');
 
     useEffect(() => {
         const fetchState = async () => {
@@ -87,6 +89,9 @@ function KeyNav() {
             chrome.tabs.sendMessage(tab.id, { action: 'applyKeyNav', types }, (response) => {
                 if (chrome.runtime.lastError) {
                     console.error('Error:', chrome.runtime.lastError);
+                } else {
+                    setApplyStatus('Applied!');
+                    setTimeout(() => setApplyStatus('Apply'), 3000);
                 }
             });
         } catch (error) {
@@ -108,6 +113,8 @@ function KeyNav() {
                     setActiveFeatures({ focus: false, skipToMainContent: false });
                 }
             });
+            setRemoveStatus('Removed!');
+            setTimeout(() => setRemoveStatus('Remove'), 3000);
         } catch (error) {
             console.error('Error:', error);
         }
@@ -142,8 +149,8 @@ function KeyNav() {
                 </div>
             </div>
             <div className="popup-buttons">
-                <button onClick={handleApply}>Apply</button>
-                <button onClick={handleRemove}>Remove</button>
+                <button onClick={handleApply}>{applyStatus}</button>
+                <button onClick={handleRemove}>{removeStatus}</button>
             </div>
         </div>
     );

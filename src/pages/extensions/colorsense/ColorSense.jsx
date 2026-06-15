@@ -4,6 +4,8 @@ import './styles/colorsense.css';
 /* eslint-disable no-undef */
 function ColorSense() {
     const [selectedType, setSelectedType] = useState(null);
+    const [applyStatus, setApplyStatus] = useState('Apply');
+    const [removeStatus, setRemoveStatus] = useState('Remove');
 
     useEffect(() => {
         if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
@@ -43,6 +45,8 @@ function ColorSense() {
                 url.startsWith('moz-extension://')) {
 
                 console.log('Cannot inject script on browser internal pages, but saved to storage for other tabs.');
+                setApplyStatus('Applied!');
+                setTimeout(() => setApplyStatus('Apply'), 3000);
                 return;
             }
             if (!chrome.scripting || !chrome.scripting.executeScript) {
@@ -97,6 +101,9 @@ function ColorSense() {
                     console.log('Styles applied successfully', response);
                     if (response && !response.success) {
                         alert(`Error: ${response.error || 'Unknown error'}`);
+                    } else {
+                        setApplyStatus('Applied!');
+                        setTimeout(() => setApplyStatus('Apply'), 3000);
                     }
                 }
             });
@@ -129,6 +136,8 @@ function ColorSense() {
                     });
                 }
             }
+            setRemoveStatus('Removed!');
+            setTimeout(() => setRemoveStatus('Remove'), 3000);
         } catch (error) {
             console.error('Error:', error);
         }
@@ -191,8 +200,8 @@ function ColorSense() {
                 </div>
             </div>
             <div className="popup-buttons">
-                <button onClick={handleApply}>Apply</button>
-                <button onClick={handleRemove}>Remove</button>
+                <button onClick={handleApply}>{applyStatus}</button>
+                <button onClick={handleRemove}>{removeStatus}</button>
             </div>
         </div>
     );
