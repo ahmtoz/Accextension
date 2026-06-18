@@ -7,8 +7,8 @@ function VideoSection() {
         <h2>Discover Accextension</h2>
         <div className="video-container">
           <iframe
-            src="https://www.youtube.com/embed/aOkLTd7rlNc"
-            title="YouTube Shorts video"
+            src="https://www.youtube.com/embed/ddj4UGQiZR8?si=vbCqFyFXd09ubSkF"
+            title="Accextension Promo Video"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen

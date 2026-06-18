@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/colorBlindnessTestSection.css';
 
 const PLATES = [
@@ -158,10 +159,10 @@ function IshiharaPlate({ number, type }) {
 
   return (
     <div className="plate-canvas-wrapper">
-      <canvas 
-        ref={canvasRef} 
-        width="300" 
-        height="300" 
+      <canvas
+        ref={canvasRef}
+        width="300"
+        height="300"
         className="plate-canvas"
         aria-label={`Color blindness test plate showing a number`}
       />
@@ -246,13 +247,13 @@ function ColorBlindnessTestSection() {
     <section id="color-blindness-test" className="color-test-section">
       <div className="test-container">
         <div className="test-card">
-          
+
           {step === 0 && (
             <div className="test-intro">
               <div className="test-badge">Interactive Tool</div>
               <h2>Quick Color Vision Test</h2>
               <p>
-                Color blindness affects approximately 1 in 12 men and 1 in 200 women worldwide. 
+                Color blindness affects approximately 1 in 12 men and 1 in 200 women worldwide.
                 Take this quick 1-minute interactive Ishihara test to check your color perception.
               </p>
               <div className="intro-visual">
@@ -273,23 +274,23 @@ function ColorBlindnessTestSection() {
                   Plate <span>{step}</span> of {PLATES.length}
                 </div>
                 <div className="progress-bar-bg">
-                  <div 
-                    className="progress-bar-fill" 
+                  <div
+                    className="progress-bar-fill"
                     style={{ width: `${(step / PLATES.length) * 100}%` }}
                   ></div>
                 </div>
               </div>
 
               <h3>What number do you see in the circle below?</h3>
-              
+
               <div className="plate-view">
                 <IshiharaPlate number={currentPlate.number} type={currentPlate.type} />
               </div>
 
               <div className="options-grid">
                 {currentPlate.options.map((option, idx) => (
-                  <button 
-                    key={idx} 
+                  <button
+                    key={idx}
                     className="option-btn"
                     onClick={() => handleAnswer(step, option)}
                   >
@@ -309,13 +310,13 @@ function ColorBlindnessTestSection() {
               <h3 className={`diagnostic-text ${result.severity}`}>
                 {result.diagnostic}
               </h3>
-              
+
               <div className="score-badge">
                 Correct Answers: <strong>{result.totalCorrect} / {PLATES.length}</strong>
               </div>
 
               <p className="results-description">
-                {result.severity === 'normal' 
+                {result.severity === 'normal'
                   ? "Great news! Your answers indicate normal color vision. You can still use Accextension to enhance contrast, readability, and reduce eye strain."
                   : "Based on your selections, you may have some form of color vision deficiency. Don't worry! This is very common, and there are tools to help you."
                 }
@@ -324,13 +325,13 @@ function ColorBlindnessTestSection() {
               <div className="results-info-box">
                 <h4>How can Accextension help you?</h4>
                 <p>
-                  Our browser extension features <strong>ColorSense</strong>, a real-time accessibility filter that re-maps colors on any website. 
+                  Our browser extension features <strong>ColorSense</strong>, a real-time accessibility filter that re-maps colors on any website.
                   It helps individuals with Protanopia, Deuteranopia, Tritanopia, and Achromatopsia distinguish details easily.
                 </p>
                 <div className="results-cta">
-                  <a href="#features-section" className="cta-action-btn">
+                  <Link to="/#features-section" className="cta-action-btn">
                     Explore ColorSense Feature
-                  </a>
+                  </Link>
                 </div>
               </div>
 

@@ -45,11 +45,11 @@ The project also includes a **promotional video** to communicate the final produ
 | 10. Preparing User Test Plan | Nida Melis İŞLEYEN | Design user testing process and scenarios | Mar 23 - Mar 29 | Completed |
 | 11. ReadEase Implementation | Doğan TOSUN | Implement ReadEase features | Mar 23 - Mar 29 | Completed |
 | 12. Key-Nav Design Search | Bilge UZUN | Research navigation accessibility solutions | Mar 30 - Apr 5 | Completed |
-| 13. Key-Nav Prototyping | Bilge UZUN | Create prototype for keyboard navigation | Apr 6 - Apr 13 | In Progress |
-| 14. Key-Nav Implementation | Ahmet Faruk ÖZ | Implement keyboard navigation system | Apr 14 - Apr 21 | Waiting |
-| 15. User Testing & Result Report | Team | Conduct user testing and analyze results | Mar 30 - May 10 | Waiting |
-| 16. Refactoring Website & Extensions | Ahmet Faruk ÖZ & Doğan TOSUN | Improve code quality and optimize features | May 11 - May 24 | Waiting |
-| 17. Revision Week | Whole Group | Final revisions and improvements | May 25 - Jun 7 | Waiting |
+| 13. Key-Nav Prototyping | Bilge UZUN | Create prototype for keyboard navigation | Apr 6 - Apr 13 | Completed |
+| 14. Key-Nav Implementation | Ahmet Faruk ÖZ | Implement keyboard navigation system | Apr 14 - Apr 21 | Completed |
+| 15. User Testing & Result Report | Team | Conduct user testing and analyze results | Mar 30 - May 10 | Completed |
+| 16. Refactoring Website & Extensions | Ahmet Faruk ÖZ & Doğan TOSUN | Improve code quality and optimize features | May 11 - May 24 | Completed |
+| 17. Revision Week | Whole Group | Final revisions and improvements | May 25 - Jun 7 | Completed |
 
 
 ---
